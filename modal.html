@@ -16,9 +16,9 @@
       right: 0;
       bottom: 0;
       left: 0;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.4);
       /* цвет фона */
-      z-index: 1050;
+      z-index: 1000;
       opacity: 0;
       /* по умолчанию модальное окно прозрачно */
       -webkit-transition: opacity 400ms ease-in;
@@ -46,7 +46,7 @@
     /* свойства для блока, содержащего контент модального окна */
     .modal__content {
       position: relative;
-      padding: 30px 40px;
+      padding: 30px 40px 30px;
       background-color: #ffffff;
       -webkit-background-clip: padding-box;
       background-clip: padding-box;
@@ -58,10 +58,16 @@
     .modal__content,
     .modal__header,
     .modal__body,
+    .modal__subtitle,
+    .modal__pet,
+    .modal__pet-info,
     .modal__form,
-    .modal__lable,
-    .modal__button,
-    .modal__body ul {
+    .modal__form-username,
+    .modal__form-phone,
+    .modal__form-response,
+    .modal__form-notes,
+    .modal__form-lable,
+    .modal__footer {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -70,8 +76,12 @@
 
     .modal__content,
     .modal__body,
+    .modal__subtitle,
+    .modal__pet-info,
     .modal__form,
-    .modal__body ul {
+    .modal__form-username,
+    .modal__form-phone,
+    .modal__form-response {
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
       -webkit-flex-direction: column;
@@ -80,12 +90,18 @@
     }
 
     .modal__header,
-    .modal__button,
-    .modal__body ul {
+    .modal__footer {
       -webkit-box-pack: justify;
       -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
       justify-content: space-between;
+    }
+
+    .modal__subtitle,
+    .modal__pet-info {
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
     }
 
     /* свойства для заголовка модального окна */
@@ -98,28 +114,16 @@
       margin: 0;
     }
 
-    .modal__body h4 {
-      margin: 16px 0 0;
-    }
-
     /* свойства для кнопки "Закрыть" */
     .close {
-      float: right;
-      font-size: 36px;
-      font-weight: 700;
-      line-height: 20px;
-      color: #81869C;
-      text-shadow: 0 1px 0 #ffffff;
-      opacity: .5;
-      text-decoration: none;
+      opacity: .75;
     }
 
     /* свойства для кнопки "Закрыть" при нахождении её в фокусе или наведении */
     .close:focus,
     .close:hover {
-      color: #000000;
       cursor: pointer;
-      opacity: .75;
+      opacity: 1;
     }
 
     /* свойства для блока, содержащего основное содержимое окна */
@@ -128,64 +132,195 @@
       overflow-y: hidden;
     }
 
-    .modal__body p {
+    .modal__body-text {
       margin: 4px 0 16px;
     }
 
-    .modal__body ul {
-      min-height: 97px;
-      margin-top: 16px;
+    .modal__pet {
+      margin: 18px 0 23px;
+      min-height: 91px;
+    }
+
+    .modal__subtitle {
+      margin: 16px 0 0;
+    }
+
+    .modal__pet-image {
+      height: 91px;
+      width: 91px;
+      border-radius: 50%;
+    }
+
+    .modal__pet-info {
+      padding-left: 13px;
+    }
+
+    .pet-title {
+      margin: 0;
+      height: 20px;
+    }
+
+    .pet-subtitle {
+      margin: 8px 0 0;
+      height: 20px;
+    }
+
+    .modal__form,
+    .modal__form-username,
+    .modal__form-phone,
+    .modal__form-response,
+    .modal__form-notes {
+      position: relative;
+    }
+
+    .modal__form-response {
+      margin-top: 44px;
       margin-bottom: 0;
       padding: 0;
     }
 
-    .modal__body li {
-      list-style: none;
+    .modal__contacts {
+      margin-top: 24px;
+      margin-bottom: 0;
+      padding: 0;
     }
 
-    .modal__lable {
-      position: relative;
-      margin-top: 12px;
+    .modal__form-notes {
+      margin-top: 20px;
+    }
+
+    #car-assistance__required,
+    #volunteering__required,
+    #take-forever__required,
+    #take-temporally__required {
+      position: absolute;
+      margin: 0;
+      bottom: -22px;
+      left: 16px;
+    }
+
+    .modal__form-lable {
       -webkit-box-align: center;
       -webkit-align-items: center;
       -ms-flex-align: center;
       align-items: center;
     }
 
-    .modal__lable--input-checkbox {
+    .modal__form-lable {
+      position: relative;
+      margin-bottom: 12px;
       padding-left: 28px;
+      cursor: pointer;
     }
 
-    .modal__lable--input-checkbox input {
+    .modal__form-lable--radio {
+      width: 380px;
+    }
+
+    /* Скрываем дефолтный checkbox */
+    .modal__form-lable--checkbox input[type=checkbox],
+    .modal__form-lable--radio input[type=radio] {
       position: absolute;
-      width: 16px;
-      height: 16px;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    /* Создаём настраиваемый checkbox */
+    .modal__form-lable--checkbox span {
+      position: absolute;
+      box-sizing: border-box;
       left: 0;
       top: 2px;
+      width: 16px;
+      height: 16px;
       background: #FFFFFF;
       border: 1px solid #F9B800;
-      box-sizing: border-box;
       border-radius: 2px;
-      /* Не работает */
       filter: drop-shadow(3px 3px 4px rgba(113, 113, 113, 0.05));
       box-shadow: inset 3px 3px 2px rgba(189, 188, 188, 0.24);
     }
 
-    .modal__button {
-      margin-top: 32px;
+    /* Создаём настраиваемый radio */
+    .modal__form-lable--radio span {
+      position: absolute;
+      box-sizing: border-box;
+      left: 0;
+      top: 1px;
+      width: 18px;
+      height: 18px;
+      background: #FFFFFF;
+      border: 1px solid #F9B800;
+      border-radius: 50%;
+      filter: drop-shadow(3px 3px 4px rgba(113, 113, 113, 0.05));
+      box-shadow: inset 3px 3px 2px rgba(189, 188, 188, 0.24);
     }
 
-    .modal__form {
-      position: relative;
+    /* Выбор ещё не сделан! */
+    .modal__form-lable--checkbox span:after {
+      content: "";
+      position: absolute;
+      display: none;
+      /* check icon */
+      left: 3px;
+      top: 4px;
+      width: 10px;
+      height: 7.5px;
+      background-image: url(icon/check.svg);
     }
 
+    .modal__form-lable--radio span:after {
+      content: "";
+      position: absolute;
+      display: none;
+      /* check icon */
+      top: 4px;
+      left: 4px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #ffffff;
+    }
+
+    /* При наведении и выборе */
+    .modal__form-lable--checkbox:hover span,
+    .modal__form-lable--checkbox input:checked~span {
+      border: none;
+      background: linear-gradient(168.69deg, #FFD96F -1.56%, #FFC82B 52.74%, #F4B500 93.23%);
+      box-shadow: 2px 2px 4px rgba(206, 206, 206, 0.25);
+    }
+
+    .modal__form-lable--radio:hover span,
+    .modal__form-lable--radio input:checked~span {
+      background: linear-gradient(149.04deg, #F9B800 22.92%, #FFD45B 81.94%);
+      box-shadow: 2px 2px 4px rgba(201, 201, 201, 0.25), inset 3px 3px 4px #ECAF01;
+    }
+
+    .modal__form-lable--checkbox input:checked~span:after,
+    .modal__form-lable--radio input:checked~span:after {
+      display: block;
+    }
+
+    /* Через js применяем при :checked */
+    /*.modal__form-lable--checkbox,
+    .modal__form-lable--radio {
+      font-weight: 500;
+      color: #242424;
+    }*/
+
+    /* INPUT */
     .modal__form-input,
     .modal__form-textarea {
       padding: 10px 16px;
       background: #FFFFFF;
       border: 1px solid #D6D6D6;
       box-sizing: border-box;
+      width: 100%;
       border-radius: 2px;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 120%;
+      color: #6B6B6B;
       opacity: 0.7;
     }
 
@@ -195,42 +330,82 @@
     }
 
     .modal__form-textarea {
-      margin-top: 32px;
       min-height: 76px;
       resize: none;
     }
 
-    .modal__form ul {
-      margin: 0;
-    }
-
-    .modal__form input:hover,
-    .modal__form textarea:hover {
+    .modal__form-input:hover,
+    .modal__form-textarea:hover {
       border: 1px solid #FFC41E;
+      opacity: 1.0;
     }
 
-    .modal__form input:focus,
-    .modal__form textarea:focus {
+    .modal__form-input:focus,
+    .modal__form-textarea:focus {
       outline: none;
-      border: 1px solid #FFC41E;
+      /* Выходит за поля */
+      box-shadow: 0px 0px 0px 2px rgba(255, 196, 30, 0.25);
+      opacity: 1.0;
     }
 
-    .label__psevdo-legend {
+    .modal__form-label--psevdo-legend {
       position: absolute;
       display: none;
+      background: #FFFFFF;
+      font-family: 'Roboto', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 24px;
       height: 24px;
       left: 11px;
       bottom: 28px;
       padding: 0px 4px;
     }
 
-    input:focus+.label__psevdo-legend {
+    .psevdo-legend--notes {
+      bottom: 64px;
+    }
+
+    .modal__form-input:focus:not(:placeholder-shown),
+    .modal__form-textarea:focus:not(:placeholder-shown) {
+      color: #000000;
+    }
+
+    .modal__form-input:not(:placeholder-shown),
+    .modal__form-textarea:not(:placeholder-shown),
+    .modal__form-input:hover:not(:placeholder-shown),
+    .modal__form-textarea:hover:not(:placeholder-shown) {
+      color: #242424;
+      opacity: 1.0;
+    }
+
+    .modal__form-input:focus+.modal__form-label--psevdo-legend,
+    .modal__form-textarea:focus+.modal__form-label--psevdo-legend,
+    .modal__form-input:focus:not(:placeholder-shown)+.modal__form-label--psevdo-legend,
+    .modal__form-textarea:focus:not(:placeholder-shown)+.modal__form-label--psevdo-legend {
       display: block;
-      background: #FFFFFF;
-      font-weight: normal;
-      font-size: 12px;
-      line-height: 24px;
       color: #E5A900;
+    }
+
+    .modal__form-input:not(:placeholder-shown)+.modal__form-label--psevdo-legend,
+    .modal__form-textarea:not(:placeholder-shown)+.modal__form-label--psevdo-legend {
+      display: block;
+      color: #6B6B6B;
+    }
+
+    /* INPUT DISABLED */
+    .modal__form-input:disabled,
+    .modal__form-textarea:disabled {
+      pointer-events: none;
+      background: #F2F2F2;
+      color: #B3B3B3;
+    }
+
+    .modal__footer {
+      position: relative;
+      margin-top: 32px;
+      z-index: 0;
     }
   </style>
 
@@ -247,17 +422,15 @@
         <div class="modal__content">
           <div class="modal__header">
             <h3 class="modal__title title--h3-medium h36 color--gray-6">Кому и куда передать?</h3>
-            <a href="#close" title="Close" class="close">×</a>
+            <a href="#close"><img class="close" src="icon/close.svg" alt="close"></a>
           </div>
           <div class="modal__body text--md-normal color--gray-2">
             <p>
               Чтобы передать купленные вещи, свяжитесь с&nbsp;нашими волонтерами. Вы&nbsp;сможете договориться
-              о&nbsp;времени и&nbsp;месте встречи.
-            </p>
-            <p>
+              о&nbsp;времени и&nbsp;месте встречи.<br />
               Если доставить сами не&nbsp;сможете&nbsp;&mdash; волонтеры вам помогут в&nbsp;доставке.
             </p>
-            <ul>
+            <ul class="modal__contacts">
               <li><span class="text--md-bold">+375 (33) 6237879</span> Лена</li>
               <li><span class="text--md-bold">+375 (29) 7877791</span> Ольга</li>
               <li><span class="text--md-bold">+375 (29) 5837015</span> Рита</li>
@@ -274,78 +447,285 @@
         <div class="modal__content">
           <div class="modal__header">
             <h3 class="modal__title title--h3-medium h36 color--gray-6">Автопомощь</h3>
-            <a href="#close" title="Close" class="close">×</a>
+            <a href="#close"><img class="close" src="icon/close.svg" alt="close"></a>
           </div>
           <div class="modal__body color--gray-4">
-            <h4 class="title--h4-medium h32 color--gray-2">Заяка</h4>
-            <p class="text--md-normal" style="width: 402px;">
+            <h4 class="modal__subtitle title--h4-medium h32 color--gray-2">Заяка</h4>
+            <p class="modal__body-text text--md-normal" style="width: 402px;">
               Отправьте нам заявку о&nbsp;том, что готовы помочь. Когда нам будет необходима помощь
               в&nbsp;транспортировке, мы&nbsp;позвоним вам.
             </p>
-            <form class="modal__form text--sm-normal" action="#" method="POST">
-              <div class="modal__form">
-                <input class="modal__form-input text--sm-medium color--gray-4" type="text" id="name" name="username"
-                  placeholder="Фамилия и имя"><label class="label__psevdo-legend" for="name">Фамилия и имя</label>
+            <form class="modal__form" action="#" method="POST">
+              <div class="modal__form-username">
+                <input class="modal__form-input" type="text" id="car-assistance__username" name="username" minlength="2"
+                  maxlength="56" pattern="[A-Za-zА-Яа-яЁё]{2,56}" placeholder="Фамилия и имя" />
+                <label class="modal__form-label--psevdo-legend" for="car-assistance__username">Фамилия и имя</label>
               </div>
-              <div class="modal__form">
-                <input class="modal__form-input text--sm-medium color--gray-4" type="tel" id="phone" name="phone"
-                  minlength="12" maxlength="12" required placeholder="Номер телефона"><label
-                  class="label__psevdo-legend" for="phone">Номер телефона</label>
+              <div class="modal__form-phone">
+                <input class="modal__form-input" type="tel" id="car-assistance__phone" name="phone" maxlength="12"
+                  pattern="[0-9]{12}" required placeholder="Номер телефона" />
+                <label class="modal__form-label--psevdo-legend" for="car-assistance__phone">Номер телефона</label>
+                <p class="text--sm-normal color--gray-6" id="car-assistance__required">
+                  Обязательное поле для заполнения
+                </p>
               </div>
-              <p class="text--sm-normal color--gray-6" style="margin: 2px 0 0 16px;">
-                Обязательное поле для заполнения
-              </p>
-              <p class="text--sm-medium color--gray-2" style="margin: 22px 0 4px;">
-                Выберите вид автопомощи
-              </p>
-              <ul>
+              <ul class="modal__form-response text--sm-normal">
+                <p class="text--sm-medium color--gray-2" style="margin: 0 0 16px;">
+                  Выберите вид автопомощи
+                </p>
                 <li>
-                  <label class="modal__lable modal__lable--input-checkbox">
-                    <input type="checkbox">Доставка еды, медикаментови других небольших вещей
+                  <label class="modal__form-lable modal__form-lable--checkbox">Доставка еды, медикаментов и других
+                    небольших вещей
+                    <input type="checkbox" name="car-assistance" value="food" /><span></span>
                   </label>
                 </li>
                 <li>
-                  <label class="modal__lable modal__lable--input-checkbox">
-                    <input type="checkbox">Доставка сена или соломы, строительных материлов для будок и других
-                    крупногабаритных вещей
+                  <label class="modal__form-lable modal__form-lable--checkbox">Доставка сена или соломы, строительных
+                    материлов для будок и других крупногабаритных вещей
+                    <input type="checkbox" name="car-assistance" value="underlay" /><span></span>
                   </label>
                 </li>
                 <li>
-                  <label class="modal__lable modal__lable--input-checkbox">
-                    <input type="checkbox">Транспортировка небольших собак и котов
+                  <label class="modal__form-lable modal__form-lable--checkbox">Транспортировка небольших собак и котов
+                    <input type="checkbox" name="car-assistance" value="small-dog" /><span></span>
                   </label>
                 </li>
                 <li>
-                  <label class="modal__lable modal__lable--input-checkbox">
-                    <input type="checkbox">Транспортировка больших собак
+                  <label class="modal__form-lable modal__form-lable--checkbox">Транспортировка больших собак
+                    <input type="checkbox" name="car-assistance" value="big-dog" /><span></span>
                   </label>
                 </li>
               </ul>
-              <textarea class="modal__form-textarea text--sm-medium color--gray-4" placeholder="Замечания"></textarea>
-              <div class="modal__button">
-                <button class="btn" type="submit">
-                  <span class="btn--text">Отправить заявку</span>
-                </button>
-                <button>Отмена</button>
+              <div class="modal__form-notes">
+                <textarea class="modal__form-textarea" id="car-assistance__notes" name="notes" maxlength="500"
+                  placeholder="Замечания"></textarea>
+                <label class="modal__form-label--psevdo-legend psevdo-legend--notes"
+                  for="car-assistance__notes">Опишите,
+                  как вы сможете нам помочь и удобное время для вас</label>
               </div>
             </form>
+          </div>
+          <div class="modal__footer">
+            <button class="btn btn__primary" type="submit">Отправить заявку</button>
+            <button class="btn btn__secondary" type="reset">Отмена</button>
           </div>
         </div>
       </div>
     </div>
+    <div style="text-align: center; margin: 30px auto;">
+      <a href="#openModal-3">Открыть модальное окно "Волонтёрство"</a>
+    </div>
+    <div id="openModal-3" class="modal">
+      <div class="modal__dialog" style="width: 582px;">
+        <div class="modal__content">
+          <div class="modal__header">
+            <h3 class="modal__title title--h3-medium h36 color--gray-6">Волонтёрство</h3>
+            <a href="#close"><img class="close" src="icon/close.svg" alt="close"></a>
+          </div>
+          <div class="modal__body color--gray-4">
+            <h4 class="modal__subtitle title--h4-medium h32 color--gray-2">Заяка</h4>
+            <p class="modal__body-text text--md-normal">
+              Отправьте нам заявку о&nbsp;том, что готовы помочь. Когда нам будет необходима помощь, мы&nbsp;позвоним
+              вам.
+            </p>
+            <form class="modal__form" action="#" method="POST">
+              <div class="modal__form-username">
+                <input class="modal__form-input" type="text" id="volunteering__username" name="username" minlength="2"
+                  maxlength="56" pattern="[A-Za-zА-Яа-яЁё]{2,56}" placeholder="Фамилия и имя" />
+                <label class="modal__form-label--psevdo-legend" for="volunteering__username">Фамилия и имя</label>
+              </div>
+              <div class="modal__form-phone">
+                <input class="modal__form-input" type="tel" id="volunteering__phone" name="phone" maxlength="12"
+                  pattern="[0-9]{12}" required placeholder="Номер телефона" />
+                <label class="modal__form-label--psevdo-legend" for="volunteering__phone">Номер телефона</label>
+                <p class="text--sm-normal color--gray-6" id="volunteering__required">
+                  Обязательное поле для заполнения
+                </p>
+              </div>
+              <ul class="modal__form-response text--sm-normal">
+                <li>
+                  <label class="modal__form-lable modal__form-lable--radio">Хочу помогать на&nbsp;постоянной
+                    основе (расписание можно подобрать так, как будет удобно для всех)
+                    <input type="radio" name="volunteering" value="always" checked /><span></span>
+                  </label>
+                </li>
+                <li>
+                  <label class="modal__form-lable modal__form-lable--radio">Готов помогать иногда. Хочу выбрать
+                    удобное для меня время
+                    <input type="radio" name="volunteering" value="sometimes" /><span></span>
+                  </label>
+                </li>
+              </ul>
+              <div class="modal__form-notes">
+                <textarea class="modal__form-textarea" id="volunteering__notes" name="notes" maxlength="500"
+                  placeholder="Замечания"></textarea>
+                <label class="modal__form-label--psevdo-legend psevdo-legend--notes" for="volunteering__notes">Опишите,
+                  как вы сможете нам помочь и удобное время для вас</label>
+              </div>
+            </form>
+          </div>
+          <div class="modal__footer">
+            <button class="btn btn__primary" type="submit">Отправить заявку</button>
+            <button class="btn btn__secondary" type="reset">Отмена</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center; margin: 30px auto;">
+      <a href="#openModal-4">Открыть модальное окно "Забрать домой"</a>
+    </div>
+    <div id="openModal-4" class="modal">
+      <div class="modal__dialog">
+        <div class="modal__content">
+          <div class="modal__header">
+            <h3 class="modal__title title--h3-medium h36 color--gray-6">Забрать домой</h3>
+            <a href="#close"><img class="close" src="icon/close.svg" alt="close"></a>
+          </div>
+          <div class="modal__body color--gray-4">
+            <div class="modal__pet">
+              <img class="modal__pet-image" src="" alt="">
+              <div class="modal__pet-info">
+                <h4 class="pet-title title--h4-medium color--gray-2">Моник</h4>
+                <p class="pet-subtitle text--sm-medium color--gray-4">Мальчик, 7 месяцев</p>
+              </div>
+            </div>
+            <p class="modal__body-text text--md-normal" style="width: 402px;">
+              Оставьте информацию о себе. Мы позвоним вам и договоримся, когда вы сможете забрать себе питомца.
+            </p>
+            <form class="modal__form" action="#" method="POST">
+              <div class="modal__form-username">
+                <input class="modal__form-input" type="text" id="take-forever__username" name="username" minlength="2"
+                  maxlength="56" pattern="[A-Za-zА-Яа-яЁё]{2,56}" placeholder="Фамилия и имя" />
+                <label class="modal__form-label--psevdo-legend" for="take-forever__username">Фамилия и имя</label>
+              </div>
+              <div class="modal__form-phone">
+                <input class="modal__form-input" type="tel" id="take-forever__phone" name="phone" maxlength="12"
+                  pattern="[0-9]{12}" required placeholder="Номер телефона" />
+                <label class="modal__form-label--psevdo-legend" for="take-forever__phone">Номер телефона</label>
+                <p class="text--sm-normal color--gray-6" id="take-forever__required">
+                  Обязательное поле для заполнения
+                </p>
+              </div>
+              <div class="modal__form-notes" style="margin-top: 44px;">
+                <textarea class="modal__form-textarea" id="take-forever__notes" name="notes" maxlength="500"
+                  placeholder="Замечания"></textarea>
+                <label class="modal__form-label--psevdo-legend psevdo-legend--notes" for="take-forever__notes">Опишите,
+                  как вы сможете нам помочь и удобное время для вас</label>
+              </div>
+              <ul class="modal__contacts text--sm-normal color--gray-3">
+                <li>
+                  Если у вас есть вопросы, можете позвонить нам:
+                </li>
+                <li>
+                  +375 (33) 6237879 Лена
+                </li>
+                <li>
+                  +375 (29) 7877791 Ольга
+                </li>
+                <li>
+                  +375 (29) 5837015 Рита
+                </li>
+              </ul>
+            </form>
+          </div>
+          <div class="modal__footer">
+            <button class="btn btn__primary" type="submit">Отправить заявку</button>
+            <button class="btn btn__secondary" type="reset">Отмена</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center; margin: 30px auto;">
+      <a href="#openModal-5">Открыть модальное окно "Забрать на передержку"</a>
+    </div>
+    <div id="openModal-5" class="modal" style="z-index: 1000">
+      <div class="modal__dialog">
+        <div class="modal__content">
+          <div class="modal__header">
+            <h3 class="modal__title title--h3-medium h36 color--gray-6">Забрать на передержку</h3>
+            <a href="#close"><img class="close" src="icon/close.svg" alt="close"></a>
+          </div>
+          <div class="modal__body color--gray-4">
+            <div class="modal__pet">
+              <img class="modal__pet-image" src="" alt="">
+              <div class="modal__pet-info">
+                <h4 class="pet-title title--h4-medium color--gray-2">Моник</h4>
+                <p class="pet-subtitle text--sm-medium color--gray-4">Мальчик, 7 месяцев</p>
+              </div>
+            </div>
+            <p class="modal__body-text text--md-normal" style="width: 402px;">
+              Оставьте информацию о себе. Мы позвоним вам и договоримся, когда вы сможете забрать себе питомца на
+              передержку.
+            </p>
+            <form class="modal__form" action="#" method="POST">
+              <div class="modal__form-username">
+                <input class="modal__form-input" type="text" id="take-temporally__username" name="username"
+                  minlength="2" maxlength="56" pattern="[A-Za-zА-Яа-яЁё]{2,56}" placeholder="Фамилия и имя" />
+                <label class="modal__form-label--psevdo-legend" for="take-temporally__username">Фамилия и имя</label>
+              </div>
+              <div class="modal__form-phone">
+                <input class="modal__form-input" type="tel" id="take-temporally__phone" name="phone" maxlength="12"
+                  pattern="[0-9]{12}" required placeholder="Номер телефона" />
+                <label class="modal__form-label--psevdo-legend" for="take-temporally__phone">Номер телефона</label>
+                <p class="text--sm-normal color--gray-6" id="take-temporally__required">
+                  Обязательное поле для заполнения
+                </p>
+              </div>
+              <div class="modal__form-notes" style="margin-top: 44px;">
+                <textarea class="modal__form-textarea" id="take-temporally__notes" name="notes" maxlength="500"
+                  placeholder="Замечания"></textarea>
+                <label class="modal__form-label--psevdo-legend psevdo-legend--notes"
+                  for="take-temporally__notes">Опишите,
+                  как вы сможете нам помочь и удобное время для вас</label>
+              </div>
+              <ul class="modal__contacts text--sm-normal color--gray-3">
+                <li>
+                  Если у вас есть вопросы, можете позвонить нам:
+                </li>
+                <li>
+                  +375 (33) 6237879 Лена
+                </li>
+                <li>
+                  +375 (29) 7877791 Ольга
+                </li>
+                <li>
+                  +375 (29) 5837015 Рита
+                </li>
+              </ul>
+              <p class="text--md-normal color--gray-6" style="margin: 16px 0 0;">
+                Наши волонтеры будут активно искать будущий дом хвостику, пока вы помогаете нам с передержкой.<br />
+                Спасибо за помощь!
+              </p>
+            </form>
+          </div>
+          <div class="modal__footer">
+            <button class="btn btn__primary" type="submit">Отправить заявку</button>
+            <button class="btn btn__secondary" type="reset">Отмена</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       var scrollbar = document.body.clientWidth - window.innerWidth + 'px';
       console.log(scrollbar);
-      document.querySelector('[href="#openModal-1"], [href="#openModal-2"]').addEventListener('click', function () {
-        document.body.style.overflow = 'hidden';
-        document.querySelector('#openModal-1, #openModal-2').style.marginLeft = scrollbar;
-      });
+      document.querySelector(
+          '[href="#openModal-1"], [href="#openModal-2"], [href="#openModal-3"], [href="#openModal-4"], [href="#openModal-5"]'
+        )
+        .addEventListener('click', function () {
+          document.body.style.overflow = 'hidden';
+          document.querySelector('#openModal-1, #openModal-2, #openModal-3, #openModal-4, #openModal-5').style
+            .marginLeft =
+            scrollbar;
+        });
       document.querySelector('[href="#close"]').addEventListener('click', function () {
         document.body.style.overflow = 'visible';
-        document.querySelector('#openModal-1, #openModal-2').style.marginLeft = '0px';
+        document.querySelector('#openModal-1, #openModal-2, #openModal-3, #openModal-4, #openModal-5').style
+          .marginLeft =
+          '0px';
       });
     });
   </script>

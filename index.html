@@ -10,12 +10,10 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body class="body">
+<body>
   <div class="dog-1"></div>
   <div class="cat-1"></div>
-  <div class="ya_budu"></div>
-  <div class="luchshym"></div>
-  <div class="drugom"></div>
+  <div class="ya_budu_luchshym_drugom"></div>
   <header class="header">
     <nav class="nav">
       <div
@@ -30,18 +28,27 @@
           <a class="nav__link" href="#about_us">Контакты</a>
         </div>
       </div>
-      <div class="link-social">
-        <a class="btn-social" href="https://vk.com/animalsgrodno" target="_blank">
-          <div class="btn-social--vk"></div>
-        </a>
-        <a class="btn-social" href="https://www.instagram.com/animalsgrodno/" target="_blank">
-          <div class="btn-social--inst">
-            <!--<svg>
-              <use xlink:href="button/inst.svg"></use>
-            </svg>-->
-          </div>
-        </a>
-      </div>
+      <ul class="link-social">
+        <li>
+          <a class="btn__social btn__social--yellow" href="https://vk.com/animalsgrodno" role="button" target="_blank">
+            <svg class="btn__social--yellow--vk" width="30" height="18" viewBox="0 0 30 18" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M29.3122 1.21896C29.5218 0.515712 29.3122 0 28.3211 0H25.0379C24.2025 0 23.8207 0.446144 23.6111 0.936146C23.6111 0.936146 21.9418 5.04823 19.5764 7.7145C18.8128 8.49034 18.464 8.73534 18.0478 8.73534C17.8397 8.73534 17.5373 8.49034 17.5373 7.78709V1.21896C17.5373 0.375063 17.2963 0 16.6001 0H11.441C10.92 0 10.6056 0.390187 10.6056 0.762225C10.6056 1.56075 11.7883 1.74525 11.9096 3.99563V8.8775C11.9096 9.94673 11.7195 10.1418 11.3003 10.1418C10.1879 10.1418 7.48112 6.01462 5.87471 1.29004C5.56181 0.372039 5.24592 0.00151296 4.40753 0.00151296H1.12584C0.18714 0.00151296 0 0.447656 0 0.937658C0 1.81785 1.11236 6.17342 5.18154 11.934C7.89433 15.8676 11.7135 18 15.1928 18C17.2783 18 17.5358 17.5266 17.5358 16.71V13.7367C17.5358 12.79 17.7349 12.5994 18.3951 12.5994C18.8802 12.5994 19.7156 12.8474 21.6634 14.7424C23.8881 16.9897 24.2564 17.9985 25.5065 17.9985H28.7882C29.7254 17.9985 30.194 17.5251 29.9245 16.5905C29.6295 15.6604 28.5666 14.3068 27.1563 12.7053C26.3898 11.7918 25.2445 10.8088 24.8956 10.3173C24.4091 9.68358 24.5498 9.4038 24.8956 8.8412C24.8971 8.84272 28.896 3.15325 29.3122 1.21896Z" />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a class="btn__social btn__social--yellow" href="https://www.instagram.com/animalsgrodno/" role="button"
+            target="_blank">
+            <svg class="btn__social--yellow--inst" width="30" height="30" viewBox="0 0 27 27" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M13.4964 8.99808C11.0175 8.99808 8.99454 11.0211 8.99454 13.5C8.99454 15.9789 11.0175 18.0019 13.4964 18.0019C15.9752 18.0019 17.9982 15.9789 17.9982 13.5C17.9982 11.0211 15.9752 8.99808 13.4964 8.99808ZM26.9985 13.5C26.9985 11.6357 27.0154 9.78837 26.9107 7.92748C26.806 5.76602 26.3129 3.84773 24.7324 2.26716C23.1485 0.683215 21.2336 0.19351 19.0722 0.0888138C17.2079 -0.0158819 15.3606 0.00100455 13.4997 0.00100455C11.6355 0.00100455 9.78819 -0.0158819 7.92734 0.0888138C5.76592 0.19351 3.84766 0.686593 2.26712 2.26716C0.683203 3.85111 0.193506 5.76602 0.0888122 7.92748C-0.0158816 9.79174 0.00100453 11.6391 0.00100453 13.5C0.00100453 15.3609 -0.0158816 17.2116 0.0888122 19.0725C0.193506 21.234 0.68658 23.1523 2.26712 24.7328C3.85103 26.3168 5.76592 26.8065 7.92734 26.9112C9.79156 27.0159 11.6389 26.999 13.4997 26.999C15.364 26.999 17.2113 27.0159 19.0722 26.9112C21.2336 26.8065 23.1518 26.3134 24.7324 24.7328C26.3163 23.1489 26.806 21.234 26.9107 19.0725C27.0188 17.2116 26.9985 15.3643 26.9985 13.5ZM13.4964 20.4268C9.66323 20.4268 6.56969 17.3332 6.56969 13.5C6.56969 9.66679 9.66323 6.57319 13.4964 6.57319C17.3295 6.57319 20.423 9.66679 20.423 13.5C20.423 17.3332 17.3295 20.4268 13.4964 20.4268ZM20.7067 7.90722C19.8118 7.90722 19.089 7.18448 19.089 6.2895C19.089 5.39452 19.8118 4.67179 20.7067 4.67179C21.6017 4.67179 22.3244 5.39452 22.3244 6.2895C22.3247 6.50202 22.283 6.7125 22.2018 6.90889C22.1206 7.10528 22.0015 7.28373 21.8512 7.434C21.7009 7.58427 21.5225 7.70342 21.3261 7.78462C21.1297 7.86583 20.9192 7.90749 20.7067 7.90722Z" />
+            </svg>
+          </a>
+        </li>
+      </ul>
     </nav>
     <div class="header__wrapper">
       <div class="header__container">
@@ -52,11 +59,11 @@
       </div>
       <p class="header__text">У животных, находящихся в пункте отлова и временного содержания бродячих животных, есть
         всего несколько дней до усыпления...</p>
-      <a class="btn header__btn" href="#help"><span class="btn--text">Хочу помочь</span></a>
+      <a class="header__btn btn btn__primary" href="#help" role="button">Хочу помочь</a>
     </div>
   </header>
   <main class="main">
-    <section class="info">
+    <section class="info background__color">
       <div class="info__wrapper">
         <div class="info__conteiner-img">
           <div class="info__conteiner-img--big">
@@ -90,23 +97,28 @@
       <h3 class="title--h3-light help__title color--gray-2">Как помочь?</h3>
       <div class="text--md-medium help__buttons color--gray-3">
         <div class="help__button">
-          <a href="#help1"><img class="help__button-img" src="button/help1.png" alt="HELP1"></a>
+          <a class="button-img" role="button" href="#help1"><img class="help__button-img" src="button/help1.svg"
+              alt="HELP1"></a>
           <p class="help__button-text">Дать хвостику дом или взять на передержку</p>
         </div>
         <div class="help__button">
-          <a href="#help2"><img class="help__button-img" src="button/help2.png" alt="HELP2"></a>
+          <a class="button-img" role="button" href="#help2"><img class="help__button-img" src="button/help2.svg"
+              alt="HELP2"></a>
           <p class="help__button-text">Перечислить деньги в фонд помощи</p>
         </div>
         <div class="help__button">
-          <a href="#help3"><img class="help__button-img" src="button/help3.png" alt="HELP3"></a>
+          <a class="button-img" role="button" href="#help3"><img class="help__button-img" src="button/help3.svg"
+              alt="HELP3"></a>
           <p class="help__button-text">Привезти корм, лекарства или другие вещи</p>
         </div>
         <div class="help__button">
-          <a href="#help4"><img class="help__button-img" src="button/help4.png" alt="HELP4"></a>
+          <a class="button-img" role="button" href="#help4"><img class="help__button-img" src="button/help4.svg"
+              alt="HELP4"></a>
           <p class="help__button-text">Доставить животным еду или отвезти в больницу</p>
         </div>
         <div class="help__button">
-          <a href="#help5"><img class="help__button-img" src="button/help5.png" alt="HELP5"></a>
+          <a class="button-img" role="button" href="#help5"><img class="help__button-img" src="button/help5.svg"
+              alt="HELP5"></a>
           <p class="help__button-text">Выгуливать, кормить, мыть или лечить хвостиков</p>
         </div>
       </div>
@@ -139,7 +151,7 @@
         </div>
       </div>
     </section>
-    <section style="background-color: white">
+    <section class="background__color">
       <div class="background__image" id="help2"></div>
       <h3 class="title--h3-medium h32 help2__title color--gray-2">Финансовая поддержка</h3>
       <p class="text--l-medium help2__subtitle color--gray-4">
@@ -157,8 +169,8 @@
             <li>ЗАО 'Альфа-Банк'</li>
             <li>БИК: ALFABY2X</li>
           </ul>
-          <form action="https://express-pay.by/" target="_blank">
-            <button class="btn help2__btn" type="submit"><span class="btn--text">Быстрый платеж</span></button>
+          <form class="help2__btn" action="https://express-pay.by/" target="_blank">
+            <button class="btn btn__primary" type="submit">Быстрый платеж</button>
           </form>
         </div>
         <div class="help2__content">
@@ -174,9 +186,9 @@
             <li>Гипермаркет «Евроопт», ул. Янки Купалы, 82А;</li>
             <li>Фитнес-центр «АДРЕНАЛИН», ул. Подольная, д.37.</li>
           </ol>
-          <form action="#">
+          <form class="help2__btn__text" action="#">
             <!-- ! Прикрепить ссылку-->
-            <button class="btn-link help2__btn-link" type="submit">Посмотреть на карте</button>
+            <button class="btn__text" type="submit">Посмотреть на карте</button>
           </form>
         </div>
       </div>
@@ -190,7 +202,7 @@
             <li>Можно помочь с покупкой и доставкой еды для хвостатых:</li>
             <li>• Быстроразваривающиеся <span class="text--md-bold">крупы</span>: дроблёная гречка, овсянка, сечка,
               овсяные/гречневые хлопья, не требующие варки;</li>
-            <li>• <span class="text--md-bold">Сухие и влажные корма</span> для собак и котов (кроме Рекс и Petboom),
+            <li>• <span class="text--md-bold">Сухие и влажные корма</span> для собак и котов (кроме Рекс и Petboom);
             </li>
             <li>• <span class="text--md-bold">Фарш для собак</span>, "БОБИКИ" и др.</li>
             <li class="color--gray-4">Вы можете помочь в приготовлении каш и их доставке!</li>
@@ -216,9 +228,9 @@
             <li>• Будки.</li>
           </ul>
         </div>
-        <form action="#" style="order: 3;">
+        <form class="help3__btn__text" action="#" style="order: 3;">
           <!-- ! Прикрепить ссылку-->
-          <button class=" btn-link help3__btn-link" type="submit">Кому и куда передать?</button>
+          <button class="btn__text" type="submit">Кому и куда передать?</button>
         </form>
       </div>
     </section>
@@ -231,8 +243,8 @@
           ветеринарную клинику в сопровождении нашего волонтера или привозить еду. Если у
           вас есть автомобиль, немного свободного времени и доброе сердце - будем вам рады.
         </p>
-        <form action="#">
-          <button class="btn help4__btn" type="submit"><span class="btn--text">Оставить заявку</span></button>
+        <form class="help4__btn" action="#">
+          <button class="btn btn__primary" type="submit">Оставить заявку</button>
         </form>
       </div>
     </section>
@@ -252,50 +264,43 @@
             Много опыта не нужно, все расскажем и поможем! Если Вы
             располагаете несколькими часами свободного времени,
             проведите его с пользой! Главное условие - это Ваше
-            совершеннолетие и любовь к животным!</p>
-          <p class="text text--md-normal">
+            совершеннолетие и любовь к животным!<br />
             Часто животным не хватает обычных прогулок и игры, они
             сидят в клетках и грустят.</p>
-          <form action="#">
-            <button class="btn help5__btn" type="submit"><span class="btn--text">Оставить заявку</span></button>
+          <form class="help5__btn" action="#">
+            <button class="btn btn__primary" type="submit">Оставить заявку</button>
           </form>
         </div>
       </div>
     </section>
-    <article style="background-color: white">
+    <article class="background__color">
       <div class="news__wrapper color--gray-2">
         <h3 class="title--h3-medium h32 news__title">Новости</h3>
-        <div class="news__content">
+        <div class="text--md-normal news__content">
           <img class="news__img" src="background/Ellipse-1.png" alt="">
-          <div style="align-self: center">
-            <p class="text text--md-normal">
+          <div>
+            <p>
               Срочно необходимо забрать собаку (мальчик) на передержку или насовсем.
               Послезавтра его ждет усыпление. С кормом и доставкой поможем. В данный
-              момент находится в вольера САХа.
-            </p>
-            <p class="text text--md-normal">
-              Контактный телефон + 37529 58930557
-            </p>
-            <p class="text text--md-normal">
+              момент находится в вольера САХа.<br />
+              Контактный телефон + 37529 58930557<br />
               Спасите жизнь хвостику.
             </p>
           </div>
         </div>
         <div class="text--md-normal news__content">
           <img class="news__img" src="background/Ellipse-2.png" alt="">
-          <div style="align-self: center">
-            <p class="text">
-              Найдены бездомные щенки по улице Горького д.56.
-            </p>
-            <p class="text">
+          <div>
+            <p>
+              Найдены бездомные щенки по улице Горького д.56.<br />
               Сегодня будут перевезены в вольеры САХа. Если у вас есть возможность взять на
               передержку или пристроить малышей - будем вам очень благодарны.
             </p>
           </div>
         </div>
-        <form action="#">
+        <form class="news__btn__text" action="#">
           <!-- ! Прикрепить ссылку-->
-          <button class="btn-link news__btn-link" type="submit">Показать все новости</button>
+          <button class="btn__text" type="submit">Показать все новости</button>
         </form>
       </div>
     </article>
@@ -308,7 +313,7 @@
           оказавшимся в Пункте отлова и временного содержания безнадзорных
           животных г.Гродно.
         </p>
-        <h4 class="title--h4-normal">
+        <h4 class="title--h4-normal" style="margin: 24px 0;">
           Контакты
         </h4>
         <ul class="text--md-normal about_us__ul">
@@ -318,16 +323,30 @@
           <li>+375 (29) 7877791, Ольга</li>
           <li>+375 (29) 5837015, Рита</li>
         </ul>
-        <p class="text--md-normal color--gray-4">
+        <p class="text--md-normal color--gray-4" style="margin: 16px 0;">
           Связаться с нами можно написав в соц. сетях.
         </p>
-        <!-- !Исправить -->
-        <div class="link-social">
-          <a href="https://vk.com/animalsgrodno" target="_blank"><img src="icon/vk__normal-yellow.svg"
-              alt="ВКонтакте"></a>
-          <a href="https://www.instagram.com/animalsgrodno/" target="_blank"><img src="icon/inst__normal-yellow.svg"
-              alt="Instagram"></a>
-        </div>
+        <ul class="link-social">
+          <li>
+            <a class="btn__social btn__social--white" href="https://vk.com/animalsgrodno" role="button" target="_blank">
+              <svg class="btn__social--white--vk" width="30" height="18" viewBox="0 0 30 18" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M29.3122 1.21896C29.5218 0.515712 29.3122 0 28.3211 0H25.0379C24.2025 0 23.8207 0.446144 23.6111 0.936146C23.6111 0.936146 21.9418 5.04823 19.5764 7.7145C18.8128 8.49034 18.464 8.73534 18.0478 8.73534C17.8397 8.73534 17.5373 8.49034 17.5373 7.78709V1.21896C17.5373 0.375063 17.2963 0 16.6001 0H11.441C10.92 0 10.6056 0.390187 10.6056 0.762225C10.6056 1.56075 11.7883 1.74525 11.9096 3.99563V8.8775C11.9096 9.94673 11.7195 10.1418 11.3003 10.1418C10.1879 10.1418 7.48112 6.01462 5.87471 1.29004C5.56181 0.372039 5.24592 0.00151296 4.40753 0.00151296H1.12584C0.18714 0.00151296 0 0.447656 0 0.937658C0 1.81785 1.11236 6.17342 5.18154 11.934C7.89433 15.8676 11.7135 18 15.1928 18C17.2783 18 17.5358 17.5266 17.5358 16.71V13.7367C17.5358 12.79 17.7349 12.5994 18.3951 12.5994C18.8802 12.5994 19.7156 12.8474 21.6634 14.7424C23.8881 16.9897 24.2564 17.9985 25.5065 17.9985H28.7882C29.7254 17.9985 30.194 17.5251 29.9245 16.5905C29.6295 15.6604 28.5666 14.3068 27.1563 12.7053C26.3898 11.7918 25.2445 10.8088 24.8956 10.3173C24.4091 9.68358 24.5498 9.4038 24.8956 8.8412C24.8971 8.84272 28.896 3.15325 29.3122 1.21896Z" />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a class="btn__social btn__social--white" href="https://www.instagram.com/animalsgrodno/" role="button"
+              target="_blank">
+              <svg class="btn__social--white--inst" width="30" height="30" viewBox="0 0 27 27" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M13.4964 8.99808C11.0175 8.99808 8.99454 11.0211 8.99454 13.5C8.99454 15.9789 11.0175 18.0019 13.4964 18.0019C15.9752 18.0019 17.9982 15.9789 17.9982 13.5C17.9982 11.0211 15.9752 8.99808 13.4964 8.99808ZM26.9985 13.5C26.9985 11.6357 27.0154 9.78837 26.9107 7.92748C26.806 5.76602 26.3129 3.84773 24.7324 2.26716C23.1485 0.683215 21.2336 0.19351 19.0722 0.0888138C17.2079 -0.0158819 15.3606 0.00100455 13.4997 0.00100455C11.6355 0.00100455 9.78819 -0.0158819 7.92734 0.0888138C5.76592 0.19351 3.84766 0.686593 2.26712 2.26716C0.683203 3.85111 0.193506 5.76602 0.0888122 7.92748C-0.0158816 9.79174 0.00100453 11.6391 0.00100453 13.5C0.00100453 15.3609 -0.0158816 17.2116 0.0888122 19.0725C0.193506 21.234 0.68658 23.1523 2.26712 24.7328C3.85103 26.3168 5.76592 26.8065 7.92734 26.9112C9.79156 27.0159 11.6389 26.999 13.4997 26.999C15.364 26.999 17.2113 27.0159 19.0722 26.9112C21.2336 26.8065 23.1518 26.3134 24.7324 24.7328C26.3163 23.1489 26.806 21.234 26.9107 19.0725C27.0188 17.2116 26.9985 15.3643 26.9985 13.5ZM13.4964 20.4268C9.66323 20.4268 6.56969 17.3332 6.56969 13.5C6.56969 9.66679 9.66323 6.57319 13.4964 6.57319C17.3295 6.57319 20.423 9.66679 20.423 13.5C20.423 17.3332 17.3295 20.4268 13.4964 20.4268ZM20.7067 7.90722C19.8118 7.90722 19.089 7.18448 19.089 6.2895C19.089 5.39452 19.8118 4.67179 20.7067 4.67179C21.6017 4.67179 22.3244 5.39452 22.3244 6.2895C22.3247 6.50202 22.283 6.7125 22.2018 6.90889C22.1206 7.10528 22.0015 7.28373 21.8512 7.434C21.7009 7.58427 21.5225 7.70342 21.3261 7.78462C21.1297 7.86583 20.9192 7.90749 20.7067 7.90722Z" />
+              </svg>
+            </a>
+          </li>
+        </ul>
       </div>
     </section>
     <section class="background__image thanks">

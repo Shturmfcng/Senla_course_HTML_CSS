@@ -388,3 +388,17 @@ template {
 svg {
   fill: currentColor;
 }
+
+/* Убираем цвет фона автозаполнения от браузера */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+br {
+  display: block;
+  content: "";
+  margin-top: 5px;
+}
