@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="normalize.css" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* свойства модального окна по умолчанию */
     .modal {
       position: fixed;
       /* фиксированное положение */
@@ -46,7 +45,7 @@
     /* свойства для блока, содержащего контент модального окна */
     .modal__content {
       position: relative;
-      padding: 30px 40px 30px;
+      padding: 25px 35px 25px;
       background-color: #ffffff;
       -webkit-background-clip: padding-box;
       background-clip: padding-box;
@@ -62,10 +61,6 @@
     .modal__pet,
     .modal__pet-info,
     .modal__form,
-    .modal__form-username,
-    .modal__form-phone,
-    .modal__form-response,
-    .modal__form-notes,
     .modal__form-lable,
     .modal__footer {
       display: -webkit-box;
@@ -78,10 +73,7 @@
     .modal__body,
     .modal__subtitle,
     .modal__pet-info,
-    .modal__form,
-    .modal__form-username,
-    .modal__form-phone,
-    .modal__form-response {
+    .modal__form {
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
       -webkit-flex-direction: column;
@@ -106,7 +98,7 @@
 
     /* свойства для заголовка модального окна */
     .modal__header {
-      padding-bottom: 8px;
+      padding: 5px 5px 8px;
       border-bottom: 1px solid #EEBF3A;
     }
 
@@ -129,6 +121,7 @@
     /* свойства для блока, содержащего основное содержимое окна */
     .modal__body {
       margin: 0;
+      padding: 16px 5px;
       overflow-y: hidden;
     }
 
@@ -142,7 +135,7 @@
     }
 
     .modal__subtitle {
-      margin: 16px 0 0;
+      margin: 0;
     }
 
     .modal__pet-image {
@@ -311,17 +304,17 @@
     /* INPUT */
     .modal__form-input,
     .modal__form-textarea {
+      display: block;
+      margin: 0;
       padding: 10px 16px;
+      width: 100%;
       background: #FFFFFF;
       border: 1px solid #D6D6D6;
       box-sizing: border-box;
-      width: 100%;
       border-radius: 2px;
       font-weight: 500;
       font-size: 14px;
       line-height: 120%;
-      color: #6B6B6B;
-      opacity: 0.7;
     }
 
     .modal__form-input {
@@ -332,12 +325,12 @@
     .modal__form-textarea {
       min-height: 76px;
       resize: none;
+      overflow: hidden;
     }
 
     .modal__form-input:hover,
     .modal__form-textarea:hover {
       border: 1px solid #FFC41E;
-      opacity: 1.0;
     }
 
     .modal__form-input:focus,
@@ -345,7 +338,11 @@
       outline: none;
       /* Выходит за поля */
       box-shadow: 0px 0px 0px 2px rgba(255, 196, 30, 0.25);
-      opacity: 1.0;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(107, 107, 107, .7);
     }
 
     .modal__form-label--psevdo-legend {
@@ -364,7 +361,7 @@
     }
 
     .psevdo-legend--notes {
-      bottom: 64px;
+      top: -12px;
     }
 
     .modal__form-input:focus:not(:placeholder-shown),
@@ -377,7 +374,6 @@
     .modal__form-input:hover:not(:placeholder-shown),
     .modal__form-textarea:hover:not(:placeholder-shown) {
       color: #242424;
-      opacity: 1.0;
     }
 
     .modal__form-input:focus+.modal__form-label--psevdo-legend,
@@ -402,9 +398,11 @@
       color: #B3B3B3;
     }
 
+    /* свойства для подвала модального окна */
     .modal__footer {
       position: relative;
-      margin-top: 32px;
+      margin-top: 16px;
+      padding: 0 5px 5px;
       z-index: 0;
     }
   </style>
@@ -424,7 +422,7 @@
             <h3 class="modal__title title--h3-medium h36 color--gray-6">Кому и куда передать?</h3>
             <a href="#close"><img class="close" src="icon/close.svg" alt="close"></a>
           </div>
-          <div class="modal__body text--md-normal color--gray-2">
+          <div class="modal__body text--md-normal">
             <p>
               Чтобы передать купленные вещи, свяжитесь с&nbsp;нашими волонтерами. Вы&nbsp;сможете договориться
               о&nbsp;времени и&nbsp;месте встречи.<br />
@@ -450,7 +448,7 @@
             <a href="#close"><img class="close" src="icon/close.svg" alt="close"></a>
           </div>
           <div class="modal__body color--gray-4">
-            <h4 class="modal__subtitle title--h4-medium h32 color--gray-2">Заяка</h4>
+            <h4 class="modal__subtitle title--h4-medium h32">Заяка</h4>
             <p class="modal__body-text text--md-normal" style="width: 402px;">
               Отправьте нам заявку о&nbsp;том, что готовы помочь. Когда нам будет необходима помощь
               в&nbsp;транспортировке, мы&nbsp;позвоним вам.
@@ -470,7 +468,7 @@
                 </p>
               </div>
               <ul class="modal__form-response text--sm-normal">
-                <p class="text--sm-medium color--gray-2" style="margin: 0 0 16px;">
+                <p class="text--sm-medium" style="margin: 0 0 16px;">
                   Выберите вид автопомощи
                 </p>
                 <li>
@@ -506,8 +504,8 @@
             </form>
           </div>
           <div class="modal__footer">
-            <button class="btn btn__primary" type="submit">Отправить заявку</button>
-            <button class="btn btn__secondary" type="reset">Отмена</button>
+            <button class="btn btn-primary" type="submit">Отправить заявку</button>
+            <button class="btn btn-secondary" type="reset">Отмена</button>
           </div>
         </div>
       </div>
@@ -523,7 +521,7 @@
             <a href="#close"><img class="close" src="icon/close.svg" alt="close"></a>
           </div>
           <div class="modal__body color--gray-4">
-            <h4 class="modal__subtitle title--h4-medium h32 color--gray-2">Заяка</h4>
+            <h4 class="modal__subtitle title--h4-medium h32">Заяка</h4>
             <p class="modal__body-text text--md-normal">
               Отправьте нам заявку о&nbsp;том, что готовы помочь. Когда нам будет необходима помощь, мы&nbsp;позвоним
               вам.
@@ -565,8 +563,8 @@
             </form>
           </div>
           <div class="modal__footer">
-            <button class="btn btn__primary" type="submit">Отправить заявку</button>
-            <button class="btn btn__secondary" type="reset">Отмена</button>
+            <button class="btn btn-primary" type="submit">Отправить заявку</button>
+            <button class="btn btn-secondary" type="reset">Отмена</button>
           </div>
         </div>
       </div>
@@ -583,9 +581,9 @@
           </div>
           <div class="modal__body color--gray-4">
             <div class="modal__pet">
-              <img class="modal__pet-image" src="" alt="">
+              <img class="modal__pet-image" src="" alt="Питомец">
               <div class="modal__pet-info">
-                <h4 class="pet-title title--h4-medium color--gray-2">Моник</h4>
+                <h4 class="pet-title title--h4-medium">Моник</h4>
                 <p class="pet-subtitle text--sm-medium color--gray-4">Мальчик, 7 месяцев</p>
               </div>
             </div>
@@ -629,8 +627,8 @@
             </form>
           </div>
           <div class="modal__footer">
-            <button class="btn btn__primary" type="submit">Отправить заявку</button>
-            <button class="btn btn__secondary" type="reset">Отмена</button>
+            <button class="btn btn-primary" type="submit">Отправить заявку</button>
+            <button class="btn btn-secondary" type="reset">Отмена</button>
           </div>
         </div>
       </div>
@@ -647,9 +645,9 @@
           </div>
           <div class="modal__body color--gray-4">
             <div class="modal__pet">
-              <img class="modal__pet-image" src="" alt="">
+              <img class="modal__pet-image" src="" alt="Питомец">
               <div class="modal__pet-info">
-                <h4 class="pet-title title--h4-medium color--gray-2">Моник</h4>
+                <h4 class="pet-title title--h4-medium">Моник</h4>
                 <p class="pet-subtitle text--sm-medium color--gray-4">Мальчик, 7 месяцев</p>
               </div>
             </div>
@@ -699,8 +697,8 @@
             </form>
           </div>
           <div class="modal__footer">
-            <button class="btn btn__primary" type="submit">Отправить заявку</button>
-            <button class="btn btn__secondary" type="reset">Отмена</button>
+            <button class="btn btn-primary" type="submit">Отправить заявку</button>
+            <button class="btn btn-secondary" type="reset">Отмена</button>
           </div>
         </div>
       </div>
