@@ -8,10 +8,12 @@
   <link rel="shortcut icon" href="favicon.ico" />
   <link rel="stylesheet" href="normalize.css" />
   <link rel="stylesheet" href="buttons.css" />
+  <link rel="stylesheet" href="modal.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body>
+<body onload="animateHTML().init();">
+
   <header>
     <div class="header__container">
       <div class="dog"></div>
@@ -19,14 +21,14 @@
       <div class="ya_budu_luchshym_drugom"></div>
       <nav class="hamburger">
         <input id="hamburger__toggle" type="checkbox" />
-        <label class="hamburger__btn" for="hamburger__toggle">
+        <label class="hamburger__btn" tabindex="0" for="hamburger__toggle">
           <span></span>
         </label>
         <ul class="hamburger__list">
-          <li class="hamburger__item"><a href="#help">Как помочь</a></li>
-          <li class="hamburger__item"><a href="#pets">Подопечные животные</a></li>
-          <li class="hamburger__item"><a href="#about_us">О наc</a></li>
-          <li class="hamburger__item"><a href="#about_us">Контакты</a></li>
+          <li><a href="#help">Как помочь</a></li>
+          <li><a href="#pets">Подопечные животные</a></li>
+          <li><a href="#about_us">О наc</a></li>
+          <li><a href="#about_us">Контакты</a></li>
         </ul>
         <div class="hamburger__background"></div>
       </nav>
@@ -41,7 +43,8 @@
         </ul>
         <ul class="social">
           <li>
-            <a class="btn-social btn-social--yellow" href="https://vk.com/animalsgrodno" role="button" target="_blank">
+            <a class="btn-social btn-social--yellow" href="https://vk.com/animalsgrodno" role="button" target="_blank"
+              aria-label="ВКонтакте" title="ВКонтакте">
               <svg class="btn-social--yellow--vk" width="30" height="18" viewBox="0 0 30 18" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -51,7 +54,7 @@
           </li>
           <li>
             <a class="btn-social btn-social--yellow" href="https://www.instagram.com/animalsgrodno/" role="button"
-              target="_blank">
+              target="_blank" aria-label="Instagram" title="Instagram">
               <svg class="btn-social--yellow--inst" width="30" height="30" viewBox="0 0 27 27" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -68,71 +71,84 @@
           поддерживаем хвостиков, которые оказались в пункте отлова и временного содержания в Гродно.</p>
         <p class="header__text">У животных, находящихся в пункте отлова и временного содержания бродячих животных,
           есть всего несколько дней до усыпления...</p>
-        <a class="btn btn-primary" href="#help" role="button">Хочу помочь</a>
+        <a class="btn btn-primary" href="#help" role="button" aria-label="Перейти к разделу"
+          title="Перейти к разделу">Хочу помочь</a>
       </div>
     </div>
   </header>
 
   <main>
-    <section class="background__color">
-      <div class="info__wrapper">
-        <div class="info__container">
-          <div class="info__mask info__mask--rect"></div>
-          <div class="info__mask info__mask--square">
-            <img class="info__img--big" src="background/ellipse-25.png" alt="Собака в клетке протягивает лапу">
+    <div class="background--white">
+      <section>
+        <div class="info__wrapper">
+          <div class="info__container">
+            <div class="info__mask info__mask--rect"></div>
+            <div class="info__mask info__mask--square">
+              <img class="info__img--big" src="img/ellipse-25.png" alt="Собака в клетке протягивает лапу">
+            </div>
+            <img class="info__img--small" src="img/ellipse-39.png" alt="Грустный котик в клетке">
           </div>
-          <img class="info__img--small" src="background/Ellipse-39.png" alt="Грустный котик в клетке">
+          <div class="info__content">
+            <h2 class="title--h2-semibold info__title">Тут большие добрые сердца помогают жить
+              маленьким сердечкам</h2>
+            <p class="info__text">Ежедневно в пункт временного содержания, путём отлова,
+              попадают безнадзорные собаки и коты. По закону, у животных находящихся в САХе есть всего лишь несколько
+              дней, чтобы найти прежнего или обрести нового хозяина. В противном случае невостребованных животных ждёт
+              УСЫПЛЕНИЕ! Здесь вы сможете найти своего как потерявшегося, так и нового верного друга!</p>
+            <p class="info__text">Если нет возможности забрать хвостика, вы можете помочь
+              нам финансово или другой материальной помощью. Еще нам всегда нужны добрые и отзывчивые люди - волонтеры,
+              без вас очень трудно!</p>
+          </div>
         </div>
-        <div class="info__content">
-          <h3 class="title--h3-semibold info__title">Тут большие добрые сердца помогают жить
-            маленьким сердечкам</h3>
-          <p class="text--md-normal info__text">Ежедневно в пункт временного содержания, путём отлова,
-            попадают безнадзорные собаки и коты. По закону, у животных находящихся в САХе есть всего лишь несколько
-            дней, чтобы найти прежнего или обрести нового хозяина. В противном случае невостребованных животных ждёт
-            УСЫПЛЕНИЕ! Здесь вы сможете найти своего как потерявшегося, так и нового верного друга!</p>
-          <p class="text--md-normal info__text">Если нет возможности забрать хвостика, вы можете помочь
-            нам финансово или другой материальной помощью. Еще нам всегда нужны добрые и отзывчивые люди - волонтеры,
-            без вас очень трудно!</p>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
     <section id="help">
-      <h3 class="title--h3-light help__title">Как помочь?</h3>
-      <div class="text--md-medium help__buttons">
-        <div class="help__button">
-          <a class="help__button--img" role="button" href="#help1"><img src="button/help1.svg" alt="Перейти к разделу"
-              title="Перейти к разделу"></a>
+      <h2 class="help__title">Как помочь?</h2>
+      <ul class="text--md-medium help__buttons hidden-buttons">
+        <li class="help__button">
+          <a class="help__button--img" role="button" href="#help1" aria-label="Перейти к разделу"
+            title="Перейти к разделу">
+            <img src="button/help1.svg" alt="">
+          </a>
           <p class="help__button--text">Дать хвостику дом или взять на передержку</p>
-        </div>
-        <div class="help__button">
-          <a class="help__button--img" role="button" href="#help2"><img src="button/help2.svg" alt="Перейти к разделу"
-              title="Перейти к разделу"></a>
+        </li>
+        <li class="help__button">
+          <a class="help__button--img" role="button" href="#help2" aria-label="Перейти к разделу"
+            title="Перейти к разделу">
+            <img src="button/help2.svg" alt="">
+          </a>
           <p class="help__button--text">Перечислить деньги в фонд помощи</p>
-        </div>
-        <div class="help__button">
-          <a class="help__button--img" role="button" href="#help3"><img src="button/help3.svg" alt="Перейти к разделу"
-              title="Перейти к разделу"></a>
+        </li>
+        <li class="help__button">
+          <a class="help__button--img" role="button" href="#help3" aria-label="Перейти к разделу"
+            title="Перейти к разделу">
+            <img src="button/help3.svg" alt="">
+          </a>
           <p class="help__button--text">Привезти корм, лекарства или другие вещи</p>
-        </div>
-        <div class="help__button">
-          <a class="help__button--img" role="button" href="#help4"><img src="button/help4.svg" alt="Перейти к разделу"
-              title="Перейти к разделу"></a>
+        </li>
+        <li class="help__button">
+          <a class="help__button--img" role="button" href="#help4" aria-label="Перейти к разделу"
+            title="Перейти к разделу">
+            <img src="button/help4.svg" alt="">
+          </a>
           <p class="help__button--text">Доставить животным еду или отвезти в больницу</p>
-        </div>
-        <div class="help__button">
-          <a class="help__button--img" role="button" href="#help5"><img src="button/help5.svg" alt="Перейти к разделу"
-              title="Перейти к разделу"></a>
+        </li>
+        <li class="help__button">
+          <a class="help__button--img" role="button" href="#help5" aria-label="Перейти к разделу"
+            title="Перейти к разделу">
+            <img src="button/help5.svg" alt="">
+          </a>
           <p class="help__button--text">Выгуливать, кормить, мыть или лечить хвостиков</p>
-        </div>
-      </div>
+        </li>
+      </ul>
     </section>
     <section>
-      <div class="thanks__background" id="help1"></div>
+      <div class="separator__background" id="help1"></div>
       <div class="help1__wrapper">
         <div class="help1__container">
           <div class="help1__content">
             <h3 class="title--h3-medium help1__content--title">Дом и любовь для хвостика</h3>
-            <p class="text--md-normal help1__content--text">Самая большая помощь&nbsp;&mdash; это спасти жизнь
+            <p class="help1__content--text">Самая большая помощь&nbsp;&mdash; это спасти жизнь
               животному,
               забрать домой, или помочь хвостику с&nbsp;поиском дома. У&nbsp;наших подопечных очень мало времени.
               Рассказывайте друзьям и&nbsp;знакомым о&nbsp;наших хвостиках, возможно кому-то нужен будет именно такой
@@ -140,32 +156,124 @@
           </div>
           <div class="help1__content">
             <h3 class="title--h3-medium help1__content--title">Передержка</h3>
-            <p class="text--md-normal help1__content--text">Когда животных ждет скорое усыпление, очень важно найти
+            <p class="help1__content--text">Когда животных ждет скорое усыпление, очень важно найти
               ему дом. Но&nbsp;пока дом и&nbsp;новые или старые хозяева разыскиваются, хвостику нужно где-то жить.
               Вы&nbsp;можете забрать к&nbsp;себе домой животных на&nbsp;время. Волонтеры, в&nbsp;свою очередь,
               обязательно помогут с&nbsp;поиском нового дома.</p>
           </div>
         </div>
       </div>
-      <div id="pets">
-        <h3 class="title--h3-light help1__title">Наши подопечные</h3>
-        <div></div>
+      <div class="pets__wrapper">
+        <h3 class="title--h3-light pets__title">Наши подопечные</h3>
+        <ul class="pets__container">
+          <li class="pet-item hidden-pets" tabindex="0">
+            <img class="pet-img" src="img/pets/pets-1.png" alt="Рыжая собака" title="Моник">
+            <h4 class="pet-title title--h4-medium">Моник</h4>
+            <p class="pet-subtitle text--sm-medium">Мальчик, 7 месяцев</p>
+            <p class="pet-info text--sm-medium">К поводку приучен. Не агрессивный. В еде не привередничает. С другими
+              животными не конфликтует. Привит.</p>
+            <form action="#openModal-more-details">
+              <button class="btn-text" type="submit">Подробнее</button>
+            </form>
+          </li>
+          <li class="pet-item hidden-pets" tabindex="0">
+            <img class="pet-img" src="img/pets/pets-2.png" alt="Красивый светленький котик" title="Лунатик">
+            <h4 class="pet-title title--h4-medium">Лунатик</h4>
+            <p class="pet-subtitle text--sm-medium">Мальчик, 7 месяцев</p>
+            <p class="pet-info text--sm-medium">Малыш хочет домой и часто плачет.</p>
+            <form action="#openModal-more-details">
+              <button class="btn-text" type="submit">Подробнее</button>
+            </form>
+          </li>
+          <li class="pet-item hidden-pets" tabindex="0">
+            <img class="pet-img" src="img/pets/pets-3.png" alt="Собака с разными глазами" title="Герда">
+            <h4 class="pet-title title--h4-medium">Герда</h4>
+            <p class="pet-subtitle text--sm-medium">Мальчик, 7 месяцев</p>
+            <p class="pet-info text--sm-medium">Веселый и очень игривый, ему так нужны ваша любовь и ласка.У него
+              потрясающая густая шерсть в полосочку.</p>
+            <form action="#openModal-more-details">
+              <button class="btn-text" type="submit">Подробнее</button>
+            </form>
+          </li>
+          <li class="pet-item hidden-pets" tabindex="0">
+            <img class="pet-img" src="img/pets/pets-4.png" alt="Упитанный кот" title="Саки">
+            <h4 class="pet-title title--h4-medium">Саки</h4>
+            <p class="pet-subtitle text--sm-medium">Мальчик, 7 месяцев</p>
+            <p class="pet-info text--sm-medium">Серьезный кот в серьезные руки. Будет преданным только одному хозяину.
+            </p>
+            <form action="#openModal-more-details">
+              <button class="btn-text" type="submit">Подробнее</button>
+            </form>
+          </li>
+          <li class="pet-item hidden-pets" tabindex="0">
+            <img class="pet-img" src="img/pets/pets-5.png" alt="Моника" title="Моника">
+            <h4 class="pet-title title--h4-medium">Моника</h4>
+            <p class="pet-subtitle text--sm-medium">Девочка, 4 месяцев</p>
+            <p class="pet-info text--sm-medium">Жила в ужасных условиях, бывшая хозяйка могла исчезнуть на
+              двое суток закрыв её одну в комнате без еды. Очень ласковая,
+              забавная, в еде не привередлива.</p>
+            <form action="#openModal-more-details">
+              <button class="btn-text" type="submit">Подробнее</button>
+            </form>
+          </li>
+          <li class="pet-item hidden-pets" tabindex="0">
+            <img class="pet-img" src="img/pets/pets-6.png" alt="Андреантино" title="Андреантино">
+            <h4 class="pet-title title--h4-medium">Андреантино</h4>
+            <p class="pet-subtitle text--sm-medium">Мальчик, 7 месяцев</p>
+            <p class="pet-info text--sm-medium">Супер дружелюбный пес. Спешите, таких больше не найдете.</p>
+            <form action="#openModal-more-details">
+              <button class="btn-text" type="submit">Подробнее</button>
+            </form>
+          </li>
+        </ul>
+        <form class="pets__btn-text" action="pets.html">
+          <button class="btn-text" type="submit">Посмотреть всех</button>
+          <img src="icon/arrow_right.svg" alt="Стрелка вправо">
+        </form>
+        <div class="pets__social">
+          <p>Помочь быстрее пристроить хвостиков можно путем размещения наших постов у себя в соц
+            сетях.
+            Переходите на
+            наши странички.</p>
+          <ul class="social">
+            <li>
+              <a class="btn-social btn-social--white" href="https://vk.com/animalsgrodno" role="button" target="_blank"
+                aria-label="ВКонтакте" title="ВКонтакте">
+                <svg class="btn-social--white--vk" width="30" height="18" viewBox="0 0 30 18" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M29.3122 1.21896C29.5218 0.515712 29.3122 0 28.3211 0H25.0379C24.2025 0 23.8207 0.446144 23.6111 0.936146C23.6111 0.936146 21.9418 5.04823 19.5764 7.7145C18.8128 8.49034 18.464 8.73534 18.0478 8.73534C17.8397 8.73534 17.5373 8.49034 17.5373 7.78709V1.21896C17.5373 0.375063 17.2963 0 16.6001 0H11.441C10.92 0 10.6056 0.390187 10.6056 0.762225C10.6056 1.56075 11.7883 1.74525 11.9096 3.99563V8.8775C11.9096 9.94673 11.7195 10.1418 11.3003 10.1418C10.1879 10.1418 7.48112 6.01462 5.87471 1.29004C5.56181 0.372039 5.24592 0.00151296 4.40753 0.00151296H1.12584C0.18714 0.00151296 0 0.447656 0 0.937658C0 1.81785 1.11236 6.17342 5.18154 11.934C7.89433 15.8676 11.7135 18 15.1928 18C17.2783 18 17.5358 17.5266 17.5358 16.71V13.7367C17.5358 12.79 17.7349 12.5994 18.3951 12.5994C18.8802 12.5994 19.7156 12.8474 21.6634 14.7424C23.8881 16.9897 24.2564 17.9985 25.5065 17.9985H28.7882C29.7254 17.9985 30.194 17.5251 29.9245 16.5905C29.6295 15.6604 28.5666 14.3068 27.1563 12.7053C26.3898 11.7918 25.2445 10.8088 24.8956 10.3173C24.4091 9.68358 24.5498 9.4038 24.8956 8.8412C24.8971 8.84272 28.896 3.15325 29.3122 1.21896Z" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="btn-social btn-social--white" href="https://www.instagram.com/animalsgrodno/" role="button"
+                target="_blank" aria-label="Instagram" title="Instagram">
+                <svg class="btn-social--white--inst" width="30" height="30" viewBox="0 0 27 27" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M13.4964 8.99808C11.0175 8.99808 8.99454 11.0211 8.99454 13.5C8.99454 15.9789 11.0175 18.0019 13.4964 18.0019C15.9752 18.0019 17.9982 15.9789 17.9982 13.5C17.9982 11.0211 15.9752 8.99808 13.4964 8.99808ZM26.9985 13.5C26.9985 11.6357 27.0154 9.78837 26.9107 7.92748C26.806 5.76602 26.3129 3.84773 24.7324 2.26716C23.1485 0.683215 21.2336 0.19351 19.0722 0.0888138C17.2079 -0.0158819 15.3606 0.00100455 13.4997 0.00100455C11.6355 0.00100455 9.78819 -0.0158819 7.92734 0.0888138C5.76592 0.19351 3.84766 0.686593 2.26712 2.26716C0.683203 3.85111 0.193506 5.76602 0.0888122 7.92748C-0.0158816 9.79174 0.00100453 11.6391 0.00100453 13.5C0.00100453 15.3609 -0.0158816 17.2116 0.0888122 19.0725C0.193506 21.234 0.68658 23.1523 2.26712 24.7328C3.85103 26.3168 5.76592 26.8065 7.92734 26.9112C9.79156 27.0159 11.6389 26.999 13.4997 26.999C15.364 26.999 17.2113 27.0159 19.0722 26.9112C21.2336 26.8065 23.1518 26.3134 24.7324 24.7328C26.3163 23.1489 26.806 21.234 26.9107 19.0725C27.0188 17.2116 26.9985 15.3643 26.9985 13.5ZM13.4964 20.4268C9.66323 20.4268 6.56969 17.3332 6.56969 13.5C6.56969 9.66679 9.66323 6.57319 13.4964 6.57319C17.3295 6.57319 20.423 9.66679 20.423 13.5C20.423 17.3332 17.3295 20.4268 13.4964 20.4268ZM20.7067 7.90722C19.8118 7.90722 19.089 7.18448 19.089 6.2895C19.089 5.39452 19.8118 4.67179 20.7067 4.67179C21.6017 4.67179 22.3244 5.39452 22.3244 6.2895C22.3247 6.50202 22.283 6.7125 22.2018 6.90889C22.1206 7.10528 22.0015 7.28373 21.8512 7.434C21.7009 7.58427 21.5225 7.70342 21.3261 7.78462C21.1297 7.86583 20.9192 7.90749 20.7067 7.90722Z" />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
-    <div class="background__color">
+    <div class="background--white">
       <section>
-        <div class="thanks__background" id="help2"></div>
+        <div class="separator__background" id="help2"></div>
         <div class="help2__wrapper">
           <div class="help2__container">
             <h3 class="title--h3-medium help2__title">Финансовая поддержка</h3>
-            <p class="text--l-medium help2__subtitle">
+            <p class="help2__subtitle">
               Такая помощь необходима для оплаты стерилизации, прививок, лечения больных животных,
               покупка корма и других жизненно необходимых вещей.
             </p>
             <div class="help2__inner">
               <div class="help2__content">
                 <h3 class="title--h3-light help2__content-title">Расчетный счет в Банке</h3>
-                <ul class="text--md-normal">
+                <ul>
                   <li>БООЗЖ "СПАСИ ЖИЗНЬ"</li>
                   <li>УНП: 590375680</li>
                   <li><span class="text--md-bold">Текущий (расчетный) счет в BYN:</span></li>
@@ -179,33 +287,33 @@
               </div>
               <div class="help2__content">
                 <h3 class="title--h3-light help2__content-title">Коробочки в городе</h3>
-                <p class="text--md-normal help2__content-text">
+                <p class="help2__content-text">
                   Наши коробочки для пожертвований в г. Гродно:</p>
-                <ol class="text--md-normal">
+                <ol>
                   <li>Зоомаркет «Зообазар», ул. Комарова, 26а;</li>
                   <li>Учебный корпус ГГАУ, ул. Волковича, 1;</li>
                   <li>Парикмахерская «ПРИМАДОННА», ул. Гоголя, 11;</li>
                   <li>Зоомаркет «Зообазар» ул. Пушкина, 31а;</li>
                   <li>Гипермаркет «Евроопт», ул. Тимирязева, 8;</li>
-                  <li>Гипермаркет «Евроопт», ул. Янки Купалы, 82А;</li>
-                  <li>Фитнес-центр «АДРЕНАЛИН», ул. Подольная, д.37.</li>
+                  <li>Гипермаркет «Евроопт», ул. Янки Купалы, 82а;</li>
+                  <li>Фитнес-центр «АДРЕНАЛИН», ул. Подольная, 37.</li>
                 </ol>
-                <form class="help2__btn-text" action="#">
-                  <!-- ! Прикрепить ссылку-->
+                <form class="help2__btn-text" action="#openModal-map">
                   <button class="btn-text" type="submit">Посмотреть на карте</button>
                 </form>
               </div>
             </div>
           </div>
+        </div>
       </section>
     </div>
     <section>
-      <div class="thanks__background" id="help3"></div>
+      <div class="separator__background" id="help3"></div>
       <div class="help3__wrapper">
         <div class="help3__container">
           <div>
             <h3 class="title--h3-medium help3__title">Корма</h3>
-            <ul class="text--md-normal help3__text">
+            <ul class="help3__text">
               <li>Можно помочь с покупкой и доставкой еды для хвостатых:</li>
               <li>• Быстроразваривающиеся <span class="text--md-bold">крупы</span>: дроблёная гречка, овсянка, сечка,
                 овсяные/гречневые хлопья, не требующие варки;</li>
@@ -217,7 +325,7 @@
           </div>
           <div>
             <h3 class="title--h3-medium help3__title">Лекарства</h3>
-            <p class="text--md-normal help3__text">
+            <p class="help3__text">
               Нам необходимы препараты: <span class="text--md-bold">цефтриаксон</span> (флакон по 0,5 г); <span
                 class="text--md-bold">новокаин</span> (раствор для инъекций);
               <span class="text--md-bold">гискан; гамавит; катозал; антитокс фоспренил; энтеросгель</span> (паста);
@@ -226,7 +334,7 @@
           </div>
           <div>
             <h3 class="title--h3-medium help3__title">Другие нужные вещи</h3>
-            <ul class="text--md-normal help3__text">
+            <ul class="help3__text">
               <li>Для содержания животных всегда необходимы:</li>
               <li>• Ошейники, поводки, намордники;</li>
               <li>• Опилки и солома в любом количестве;</li>
@@ -235,41 +343,40 @@
               <li>• Будки.</li>
             </ul>
           </div>
-          <!-- ! Прикрепить ссылку-->
-          <form class="help3__btn-text" action="#">
+          <form class="help3__btn-text" action="#openModal-help3">
             <button class="btn-text" type="submit">Кому и куда передать?</button>
           </form>
         </div>
       </div>
     </section>
     <section>
-      <div class="thanks__background" id="help4"></div>
+      <div class="separator__background" id="help4"></div>
       <div class="help4__wrapper">
         <div class="help4__container">
           <h3 class="title--h3-medium help4__title">Автопомощь</h3>
-          <p class="text text--md-normal">
+          <p>
             Важной помощью будет транспортировка. Необходимо отвозить животных в
             ветеринарную клинику в сопровождении нашего волонтера или привозить еду. Если у
             вас есть автомобиль, немного свободного времени и доброе сердце - будем вам рады.
           </p>
-          <form class="help4__btn" action="#">
+          <form class="help4__btn" action="#openModal-car-assistance">
             <button class="btn btn-primary" type="submit">Оставить заявку</button>
           </form>
         </div>
       </div>
     </section>
     <section>
-      <div class="thanks__background" id="help5"></div>
+      <div class="separator__background" id="help5"></div>
       <div class="help5__wrapper">
         <div class="help5__container">
           <div class="help5__mask help5__mask--rect"></div>
           <div class="help5__mask help5__mask--square">
-            <img class="help5__img" src="background/Ellipse-27.png" alt="Милый пёсик с игрушкой в зубах">
+            <img class="help5__img" src="img/ellipse-27.png" alt="Милый пёсик с игрушкой в зубах">
           </div>
         </div>
         <div class="help5__content">
           <h3 class="title--h3-medium help5__title">Волонтерство</h3>
-          <p class="text--md-normal">
+          <p>
             Катастрофически не хватает добрых людей, которые готовы
             поделиться своим временем и окружить заботой животных.
             Много опыта не нужно, все расскажем и поможем! Если Вы
@@ -278,19 +385,20 @@
             совершеннолетие и любовь к животным!<br />
             Часто животным не хватает обычных прогулок и игры, они
             сидят в клетках и грустят.</p>
-          <form class="help5__btn" action="#">
+          <form class="help5__btn" action="#openModal-volunteering">
             <button class="btn btn-primary" type="submit">Оставить заявку</button>
           </form>
         </div>
       </div>
     </section>
-    <div class="background__color">
+    <div class="background--white">
       <section id="news">
         <div class="news__wrapper">
           <h3 class="title--h3-medium news__title">Новости</h3>
           <div id="news__box" class="news__container">
-            <article class="text--md-normal news__content">
-              <img class="news__content--img" src="background/Ellipse-1.png" alt="">
+            <article class="news__content hidden-news">
+              <h4 class="visually-hidden">Новость</h4>
+              <img class="news__content--img" src="img/ellipse-1.png" alt="Собака смотрит прямо в глаза с надеждой">
               <div class="news__content--text">
                 <p>Срочно необходимо забрать собаку (мальчик) на передержку или насовсем.
                   Послезавтра его ждет усыпление. С кормом и доставкой поможем. В данный
@@ -299,24 +407,27 @@
                 <p>Спасите жизнь хвостику.</p>
               </div>
             </article>
-            <article class="text--md-normal news__content">
-              <img class="news__content--img" src="background/Ellipse-2.png" alt="">
+            <article class="news__content hidden-news">
+              <h4 class="visually-hidden">Новость</h4>
+              <img class="news__content--img" src="img/ellipse-2.png" alt="Несколько щенков прижались друг к другу">
               <div class="news__content--text">
                 <p>Найдены бездомные щенки по улице Горького д.56.</p>
                 <p>Сегодня будут перевезены в вольеры САХа. Если у вас есть возможность взять на
                   передержку или пристроить малышей - будем вам очень благодарны.</p>
               </div>
             </article>
-            <article class="text--md-normal news__content">
-              <img class="news__content--img" src="background/Ellipse-2.png" alt="">
+            <article class="news__content hidden-news">
+              <h4 class="visually-hidden">Новость</h4>
+              <img class="news__content--img" src="img/ellipse-2.png" alt="Несколько щенков прижались друг к другу">
               <div class="news__content--text">
                 <p>Найдены бездомные щенки по улице Горького д.56.</p>
                 <p>Сегодня будут перевезены в вольеры САХа. Если у вас есть возможность взять на
                   передержку или пристроить малышей - будем вам очень благодарны.</p>
               </div>
             </article>
-            <article class="text--md-normal news__content">
-              <img class="news__content--img" src="background/Ellipse-2.png" alt="">
+            <article class="news__content hidden-news">
+              <h4 class="visually-hidden">Новость</h4>
+              <img class="news__content--img" src="img/ellipse-2.png" alt="Несколько щенков прижались друг к другу">
               <div class="news__content--text">
                 <p>Найдены бездомные щенки по улице Горького д.56.</p>
                 <p>Сегодня будут перевезены в вольеры САХа. Если у вас есть возможность взять на
@@ -329,16 +440,18 @@
                   передержку или пристроить малышей - будем вам очень благодарны.</p>
               </div>
             </article>
-            <article class="text--md-normal news__content">
-              <img class="news__content--img" src="background/Ellipse-2.png" alt="">
+            <article class="news__content hidden-news">
+              <h4 class="visually-hidden">Новость</h4>
+              <img class="news__content--img" src="img/ellipse-2.png" alt="Несколько щенков прижались друг к другу">
               <div class="news__content--text">
                 <p>Найдены бездомные щенки по улице Горького д.56.</p>
                 <p>Сегодня будут перевезены в вольеры САХа. Если у вас есть возможность взять на
                   передержку или пристроить малышей - будем вам очень благодарны.</p>
               </div>
             </article>
-            <article class="text--md-normal news__content">
-              <img class="news__content--img" src="background/Ellipse-2.png" alt="">
+            <article class="news__content hidden-news">
+              <h4 class="visually-hidden">Новость</h4>
+              <img class="news__content--img" src="img/ellipse-2.png" alt="Несколько щенков прижались друг к другу">
               <div class="news__content--text">
                 <p>Найдены бездомные щенки по улице Горького д.56.</p>
                 <p>Сегодня будут перевезены в вольеры САХа. Если у вас есть возможность взять на
@@ -347,6 +460,7 @@
             </article>
             <form class="news__btn-text">
               <button id="news__btn" class="btn-text" type="button">Показать все новости</button>
+              <img src="icon/arrow_up.svg" alt="Стрелка вверх">
             </form>
           </div>
         </div>
@@ -356,7 +470,7 @@
       <div class="about_us__wrapper">
         <h3 class="title--h3-medium about_us__title">О нас</h3>
         <div class="about_us__container">
-          <p class="text--l-medium about_us__text">
+          <p class="about_us__text">
             Мы - благотворительное общественное объединение защиты животных
             «СПАСИ ЖИЗНЬ». Цель нашей деятельности: помощь бездомным животным,
             оказавшимся в Пункте отлова и временного содержания безнадзорных
@@ -365,7 +479,7 @@
           <h4 class="title--h4-normal">
             Контакты
           </h4>
-          <ul class="text--md-normal">
+          <ul>
             <li>Если Вы хотите приютить одного из этих четвероногих или оказать какую-либо помощь,
               звоните волонтёрам:</li>
             <li>+375 (33) 6237879, Лена</li>
@@ -373,13 +487,13 @@
             <li>+375 (29) 5837015, Рита</li>
           </ul>
           <div class="about_us__social">
-            <p class="text--md-normal">
+            <p>
               Связаться с нами можно написав в соц. сетях.
             </p>
             <ul class="social">
               <li>
                 <a class="btn-social btn-social--white" href="https://vk.com/animalsgrodno" role="button"
-                  target="_blank">
+                  target="_blank" aria-label="ВКонтакте" title="ВКонтакте">
                   <svg class="btn-social--white--vk" width="30" height="18" viewBox="0 0 30 18" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -389,7 +503,7 @@
               </li>
               <li>
                 <a class="btn-social btn-social--white" href="https://www.instagram.com/animalsgrodno/" role="button"
-                  target="_blank">
+                  target="_blank" aria-label="Instagram" title="Instagram">
                   <svg class="btn-social--white--inst" width="30" height="30" viewBox="0 0 27 27" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -402,16 +516,17 @@
         </div>
       </div>
     </section>
-    <section class="thanks__background thanks">
+    <section class="thanks">
       <div class="thanks__wrapper">
         <div style="mix-blend-mode: soft-light;">
           <div class="thanks__mask thanks__mask--rect"></div>
           <div class="thanks__mask thanks__mask--square"></div>
         </div>
         <div class="thanks__container">
-          <h4 class="thanks__text">Спасибо за помощь</h4>
+          <h4 class="visually-hidden">Благодарность</h4>
+          <p class="thanks__text">Спасибо за помощь</p>
         </div>
-        <img class="thanks__img" src="background/foundation_paw.svg" alt="След лапки домашнего питомца">
+        <img class="thanks__img" src="img/foundation_paw.svg" alt="След лапки домашнего питомца">
       </div>
     </section>
   </main>
@@ -433,20 +548,358 @@
     </div>
   </footer>
 
-  <script>
-    let newsElem = document.getElementById('news__box');
-    let news__btnElem = newsElem.querySelector('#news__btn');
+  <!-- ! Модальные окна -->
+  <div id="openModal-help3" class="modal" tabindex="-1" role="dialog">
+    <div class="modal__dialog" role="document">
+      <div class="modal__content">
+        <div class="modal__header">
+          <h3 class="modal__title">Кому и куда передать?</h3>
+          <a class="close-modal" href="#close" role="button" aria-label="Закрыть" title="Закрыть">
+            <img src="icon/close.svg" alt="Крестик">
+          </a>
+        </div>
+        <div class="modal__body">
+          <p class="modal__body-text">
+            Чтобы передать купленные вещи, свяжитесь с&nbsp;нашими волонтерами. Вы&nbsp;сможете договориться
+            о&nbsp;времени и&nbsp;месте встречи.<br />
+            Если доставить сами не&nbsp;сможете&nbsp;&mdash; волонтеры вам помогут в&nbsp;доставке.
+          </p>
+          <ul class="modal__contacts">
+            <li><span class="text--md-bold">+375 (33) 6237879</span> Лена</li>
+            <li><span class="text--md-bold">+375 (29) 7877791</span> Ольга</li>
+            <li><span class="text--md-bold">+375 (29) 5837015</span> Рита</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="openModal-car-assistance" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal__dialog" role="document">
+      <div class="modal__content">
+        <div class="modal__header">
+          <h3 class="modal__title">Автопомощь</h3>
+          <a class="close-modal" href="#close" role="button" aria-label="Закрыть" title="Закрыть">
+            <img src="icon/close.svg" alt="Крестик">
+          </a>
+        </div>
+        <div class="modal__body">
+          <h4 class="modal__subtitle">Заяка</h4>
+          <p class="modal__body-text">
+            Отправьте нам заявку о&nbsp;том, что готовы помочь. Когда нам будет необходима помощь
+            в&nbsp;транспортировке, мы&nbsp;позвоним вам.
+          </p>
+          <form id="car-assistance" class="modal__form" action="#" method="POST">
+            <div class="modal__form-username">
+              <input class="modal__form-input" type="text" id="username__car-assistance" name="username" minlength="2"
+                maxlength="56" pattern="[A-Za-zА-Яа-яЁё]{2,56}" placeholder="Фамилия и имя" />
+              <label class="modal__form-label--psevdo-legend" for="username__car-assistance">Фамилия и имя</label>
+            </div>
+            <div class="modal__form-phone">
+              <input class="modal__form-input" type="tel" id="phone__car-assistance" name="phone" maxlength="12"
+                pattern="[0-9]{12}" required placeholder="Номер телефона" />
+              <label class="modal__form-label--psevdo-legend" for="phone__car-assistance">Номер телефона</label>
+              <p class="text--sm-normal" id="required__car-assistance">
+                Обязательное поле для заполнения
+              </p>
+            </div>
+            <ul class="modal__form-response text--sm-normal">
+              <li class="text--sm-medium">
+                Выберите вид автопомощи
+              </li>
+              <li>
+                <label class="modal__form-lable modal__form-lable--checkbox" tabindex="0">Доставка еды, медикаментов и
+                  других небольших вещей
+                  <input type="checkbox" name="car-assistance" value="food" tabindex="-1" /><span></span>
+                </label>
+              </li>
+              <li>
+                <label class="modal__form-lable modal__form-lable--checkbox" tabindex="0">Доставка сена или соломы,
+                  строительных материлов для будок и других крупногабаритных вещей
+                  <input type="checkbox" name="car-assistance" value="underlay" tabindex="-1" /><span></span>
+                </label>
+              </li>
+              <li>
+                <label class="modal__form-lable modal__form-lable--checkbox" tabindex="0">Транспортировка небольших
+                  собак и котов
+                  <input type="checkbox" name="car-assistance" value="small-dog" tabindex="-1" /><span></span>
+                </label>
+              </li>
+              <li>
+                <label class="modal__form-lable modal__form-lable--checkbox" tabindex="0">Транспортировка больших собак
+                  <input type="checkbox" name="car-assistance" value="big-dog" tabindex="-1" /><span></span>
+                </label>
+              </li>
+            </ul>
+            <div class="modal__form-notes">
+              <textarea class="modal__form-textarea" id="notes__car-assistance" name="notes" maxlength="500"
+                placeholder="Замечания"></textarea>
+              <label class="modal__form-label--psevdo-legend psevdo-legend--notes" for="notes__car-assistance">Опишите,
+                как вы сможете нам помочь и удобное время для вас</label>
+            </div>
+          </form>
+        </div>
+        <div class="modal__footer">
+          <button form="car-assistance" class="btn btn-primary" type="submit">Отправить заявку</button>
+          <button form="car-assistance" class="btn btn-secondary" type="reset">Отмена</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="openModal-volunteering" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal__dialog" role="document">
+      <div class="modal__content">
+        <div class="modal__header">
+          <h3 class="modal__title">Волонтёрство</h3>
+          <a class="close-modal" href="#close" role="button" aria-label="Закрыть" title="Закрыть">
+            <img src="icon/close.svg" alt="Крестик">
+          </a>
+        </div>
+        <div class="modal__body">
+          <h4 class="modal__subtitle">Заяка</h4>
+          <p class="modal__body-text">
+            Отправьте нам заявку о&nbsp;том, что готовы помочь. Когда нам будет необходима помощь, мы&nbsp;позвоним
+            вам.
+          </p>
+          <form id="volunteering" class="modal__form" action="#" method="POST">
+            <div class="modal__form-username">
+              <input class="modal__form-input" type="text" id="username__volunteering" name="username" minlength="2"
+                maxlength="56" pattern="[A-Za-zА-Яа-яЁё]{2,56}" placeholder="Фамилия и имя" />
+              <label class="modal__form-label--psevdo-legend" for="username__volunteering">Фамилия и имя</label>
+            </div>
+            <div class="modal__form-phone">
+              <input class="modal__form-input" type="tel" id="phone__volunteering" name="phone" maxlength="12"
+                pattern="[0-9]{12}" required placeholder="Номер телефона" />
+              <label class="modal__form-label--psevdo-legend" for="phone__volunteering">Номер телефона</label>
+              <p class="text--sm-normal" id="required__volunteering">
+                Обязательное поле для заполнения
+              </p>
+            </div>
+            <ul class="modal__form-response text--sm-normal">
+              <li>
+                <label class="modal__form-lable modal__form-lable--radio" tabindex="0">Хочу помогать на&nbsp;постоянной
+                  основе (расписание можно подобрать так, как будет удобно для всех)
+                  <input type="radio" name="volunteering" value="always" tabindex="-1" checked /><span></span>
+                </label>
+              </li>
+              <li>
+                <label class="modal__form-lable modal__form-lable--radio" tabindex="0">Готов помогать иногда. Хочу
+                  выбрать удобное для меня время
+                  <input type="radio" name="volunteering" value="sometimes" tabindex="-1" /><span></span>
+                </label>
+              </li>
+            </ul>
+            <div class="modal__form-notes">
+              <textarea class="modal__form-textarea" id="notes__volunteering" name="notes" maxlength="500"
+                placeholder="Замечания"></textarea>
+              <label class="modal__form-label--psevdo-legend psevdo-legend--notes" for="notes__volunteering">Опишите,
+                как вы сможете нам помочь и удобное время для вас</label>
+            </div>
+          </form>
+        </div>
+        <div class="modal__footer">
+          <button form="volunteering" class="btn btn-primary" type="submit">Отправить заявку</button>
+          <button form="volunteering" class="btn btn-secondary" type="reset">Отмена</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="openModal-take-forever" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal__dialog" role="document">
+      <div class="modal__content">
+        <div class="modal__header">
+          <h3 class="modal__title">Забрать домой</h3>
+          <a class="close-modal" href="#close" role="button" aria-label="Закрыть" title="Закрыть">
+            <img src="icon/close.svg" alt="Крестик">
+          </a>
+        </div>
+        <div class="modal__body">
+          <div class="modal__pet">
+            <img class="modal__pet-image" src="img/pets/pets-1.png" alt="Рыжая собака">
+            <div class="modal__pet-info">
+              <h4 class="title--h4-medium">Моник</h4>
+              <p class="text--sm-medium">Мальчик, 7 месяцев</p>
+            </div>
+          </div>
+          <p class="modal__body-text">
+            Оставьте информацию о себе. Мы позвоним вам и договоримся, когда вы сможете забрать себе питомца.
+          </p>
+          <form id="take-forever" class="modal__form" action="#" method="POST">
+            <div class="modal__form-username">
+              <input class="modal__form-input" type="text" id="username__take-forever" name="username" minlength="2"
+                maxlength="56" pattern="[A-Za-zА-Яа-яЁё]{2,56}" placeholder="Фамилия и имя" />
+              <label class="modal__form-label--psevdo-legend" for="username__take-forever">Фамилия и имя</label>
+            </div>
+            <div class="modal__form-phone">
+              <input class="modal__form-input" type="tel" id="phone__take-forever" name="phone" maxlength="12"
+                pattern="[0-9]{12}" required placeholder="Номер телефона" />
+              <label class="modal__form-label--psevdo-legend" for="phone__take-forever">Номер телефона</label>
+              <p class="text--sm-normal" id="required__take-forever">
+                Обязательное поле для заполнения
+              </p>
+            </div>
+            <div class="modal__form-notes">
+              <textarea class="modal__form-textarea" id="notes__take-forever" name="notes" maxlength="500"
+                placeholder="Замечания"></textarea>
+              <label class="modal__form-label--psevdo-legend psevdo-legend--notes" for="notes__take-forever">Опишите,
+                как вы сможете нам помочь и удобное время для вас</label>
+            </div>
+            <ul class="modal__contacts text--sm-normal">
+              <li>
+                Если у вас есть вопросы, можете позвонить нам:
+              </li>
+              <li>
+                +375 (33) 6237879 Лена
+              </li>
+              <li>
+                +375 (29) 7877791 Ольга
+              </li>
+              <li>
+                +375 (29) 5837015 Рита
+              </li>
+            </ul>
+          </form>
+        </div>
+        <div class="modal__footer">
+          <button form="take-forever" class="btn btn-primary" type="submit">Отправить заявку</button>
+          <button form="take-forever" class="btn btn-secondary" type="reset">Отмена</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="openModal-take-temporally" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal__dialog" role="document">
+      <div class="modal__content">
+        <div class="modal__header">
+          <h3 class="modal__title">Забрать на передержку</h3>
+          <a class="close-modal" href="#close" role="button" aria-label="Закрыть" title="Закрыть">
+            <img src="icon/close.svg" alt="Крестик">
+          </a>
+        </div>
+        <div class="modal__body">
+          <div class="modal__pet">
+            <img class="modal__pet-image" src="img/pets/pets-1.png" alt="Рыжая собака">
+            <div class="modal__pet-info">
+              <h4 class="title--h4-medium">Моник</h4>
+              <p class="text--sm-medium">Мальчик, 7 месяцев</p>
+            </div>
+          </div>
+          <p class="modal__body-text">
+            Оставьте информацию о себе. Мы позвоним вам и договоримся, когда вы сможете забрать себе питомца на
+            передержку.
+          </p>
+          <form id="take-temporally" class="modal__form" action="#" method="POST">
+            <div class="modal__form-username">
+              <input class="modal__form-input" type="text" id="username__take-temporally" name="username" minlength="2"
+                maxlength="56" pattern="[A-Za-zА-Яа-яЁё]{2,56}" placeholder="Фамилия и имя" />
+              <label class="modal__form-label--psevdo-legend" for="username__take-temporally">Фамилия и имя</label>
+            </div>
+            <div class="modal__form-phone">
+              <input class="modal__form-input" type="tel" id="phone__take-temporally" name="phone" maxlength="12"
+                pattern="[0-9]{12}" required placeholder="Номер телефона" />
+              <label class="modal__form-label--psevdo-legend" for="phone__take-temporally">Номер телефона</label>
+              <p class="text--sm-normal" id="required__take-temporally">
+                Обязательное поле для заполнения
+              </p>
+            </div>
+            <div class="modal__form-notes">
+              <textarea class="modal__form-textarea" id="notes__take-temporally" name="notes" maxlength="500"
+                placeholder="Замечания"></textarea>
+              <label class="modal__form-label--psevdo-legend psevdo-legend--notes" for="notes__take-temporally">Опишите,
+                как вы сможете нам помочь и удобное время для вас</label>
+            </div>
+            <ul class="modal__contacts text--sm-normal">
+              <li>
+                Если у вас есть вопросы, можете позвонить нам:
+              </li>
+              <li>
+                +375 (33) 6237879 Лена
+              </li>
+              <li>
+                +375 (29) 7877791 Ольга
+              </li>
+              <li>
+                +375 (29) 5837015 Рита
+              </li>
+            </ul>
+            <p>
+              Наши волонтеры будут активно искать будущий дом хвостику, пока вы помогаете нам с передержкой.<br />
+              Спасибо за помощь!
+            </p>
+          </form>
+        </div>
+        <div class="modal__footer">
+          <button form="take-temporally" class="btn btn-primary" type="submit">Отправить заявку</button>
+          <button form="take-temporally" class="btn btn-secondary" type="reset">Отмена</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="openModal-map" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal__dialog-map" role="document">
+      <div class="modal__content-map">
+        <div class="modal__header-map">
+          <a class="close-modal" href="#close" role="button" aria-label="Закрыть" title="Закрыть">
+            <img src="icon/close.svg" alt="Крестик">
+          </a>
+        </div>
+        <div class="modal__map">
+          <a href="https://yandex.by/maps/10274/grodno/?utm_medium=mapframe&utm_source=maps"
+            style="color:#eee;font-size:12px;position:absolute;top:0px;">Гродно</a>
+          <a href="https://yandex.by/maps/10274/grodno/?ll=23.833918%2C53.694496&mode=usermaps&source=constructorLink&um=constructor%3A6a7622f4673819d09f5d8c9f980e9678a64cdd116619dbdae48690e8af1dbbd3&utm_medium=mapframe&utm_source=maps&z=13"
+            style="color:#eee;font-size:12px;position:absolute;top:14px;">Яндекс.Карты — поиск мест и адресов,
+            городской транспорт</a>
+          <iframe src="https://yandex.by/map-widget/v1/-/CCUMZXt52B"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="openModal-more-details" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal__dialog" role="document">
+      <div class="modal__content">
+        <div class="modal__header">
+          <h3 class="modal__title">Альф</h3>
+          <a class="close-modal" href="#close" role="button" aria-label="Закрыть" title="Закрыть">
+            <img src="icon/close.svg" alt="Крестик">
+          </a>
+        </div>
+        <div class="modal__body">
+          <div class="modal__pet">
+            <div class="text--sm-medium">
+              <p>Мальчик, 7 месяцев</p>
+              <p>Создавая Альфа, Природа долго думала, что же нужно сделать для того, чтобы получился абсолютно
+                простой кот с необыкновенной изюминкой!</p>
+              <p>И она прекрасно реализовала свой план! Ведь Альф - это истинный баланс
+                классических цветов - белого и черного, с большими и запоминающимися лимонными глазами!</p>
+              <p>Он веселый и игривый котик, с повадками настоящего охотника! Очень умный и деликатный, чуточку
+                боязлив, никогда не будет навязывать свое общество, но всегда с благодарностью примет вашу
+                любовь и внимание. Отлично уживается на одной территории с другими представителями кошачьих.</p>
+              <p>Звоните, приезжайте на смотрины. Альф – станет вашим солнечным лучиком!</p>
+              <p>Альф находится в Пункте содержания безнадзорных животных г.Гродно. Актуальна ПЕРЕДЕРЖКА! Не
+                ждите, спасайте!</p>
+              <p>+375 29 7877791 Ольга</p>
+            </div>
+          </div>
+          <div class="modal__pet-photos">
+            <img class="modal__pet-photos--pet-photo" src="img/pets/pets-12.png" alt="Чёрно-белый кот">
+            <img class="modal__pet-photos--pet-photo" src="img/pets/pets-12-1.png" alt="Чёрно-белый кот">
+            <img class="modal__pet-photos--pet-photo" src="img/pets/pets-12-2.png" alt="Чёрно-белый кот">
+            <img class="modal__pet-photos--pet-photo" src="img/pets/pets-12.png" alt="Чёрно-белый кот">
+            <img class="modal__pet-photos--pet-photo" src="img/pets/pets-12-1.png" alt="Чёрно-белый кот">
+          </div>
+        </div>
+        <div class="modal__footer">
+          <form action="#openModal-take-forever">
+            <button class="btn btn-primary" type="submit">Забрать домой</button>
+          </form>
+          <form action="#openModal-take-temporally">
+            <button class="btn btn-secondary" type="submit">Забрать на передержку</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    news__btnElem.onclick = function () {
-      newsElem.classList.toggle('open');
-      if (newsElem.classList.contains('news__box')) {
-        news__btnElem.textContent = 'Показать все новости';
-      } else {
-        news__btnElem.textContent = 'Скрыть все новости';
-      }
-      newsElem.classList.toggle('news__box');
-    };
-  </script>
+  <script src="script.js"></script>
 </body>
 
 </html>

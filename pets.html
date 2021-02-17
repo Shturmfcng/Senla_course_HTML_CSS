@@ -1,0 +1,466 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=3.0, minimum-scale=0.86" />
+   <title>Спаси жизнь</title>
+   <link rel="shortcut icon" href="favicon.ico" />
+   <link rel="stylesheet" href="normalize.css" />
+   <link rel="stylesheet" href="buttons.css" />
+   <link rel="stylesheet" href="modal.css" />
+   <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+   <main>
+      <div class="pets__wrapper pets__wrapper--show-all">
+         <div class="pets__wrapper--show-all--header">
+            <div>
+               <a href="index.html" aria-label="Вернуться на главную страницу"
+                  title="Вернуться на главную страницу">Вернуться назад</a>
+            </div>
+            <h3 class="pets__title--show-all">Наши подопечные</h3>
+            <div>
+               <p>Показать</p>
+               <select tabindex="0">
+                  <option value="Коты и собаки">Коты и собаки</option>
+                  <option value="Только коты">Только коты</option>
+                  <option value="Только собаки">Только собаки</option>
+               </select>
+            </div>
+         </div>
+         <ul class="pets__container pets__container--show-all">
+            <li class="pet-item pet-item--show-all" tabindex="0">
+               <img class="pet-img" src="img/pets/pets-1.png" alt="Рыжая собака" title="Моник">
+               <h4 class="pet-title title--h4-medium">Моник</h4>
+               <p class="pet-subtitle text--sm-medium">Мальчик, 7 месяцев</p>
+               <p class="pet-info text--sm-medium">К поводку приучен. Не агрессивный. В еде не привередничает. С другими
+                  животными не конфликтует. Привит.</p>
+               <form action="#openModal-more-details">
+                  <button class="btn-text" type="submit">Подробнее</button>
+               </form>
+               <div class="pets__buttons">
+                  <form action="#openModal-take-forever">
+                     <button class="btn btn-primary" type="submit">Забрать домой</button>
+                  </form>
+                  <form action="#openModal-take-temporally">
+                     <button class="btn btn-secondary" type="submit">Забрать на передержку</button>
+                  </form>
+               </div>
+            </li>
+            <li class="pet-item pet-item--show-all" tabindex="0">
+               <img class="pet-img" src="img/pets/pets-2.png" alt="Красивый светленький котик" title="Лунатик">
+               <h4 class="pet-title title--h4-medium">Лунатик</h4>
+               <p class="pet-subtitle text--sm-medium">Мальчик, 7 месяцев</p>
+               <p class="pet-info text--sm-medium">Малыш хочет домой и часто плачет.</p>
+               <form action="#openModal-more-details">
+                  <button class="btn-text" type="submit">Подробнее</button>
+               </form>
+               <div class="pets__buttons">
+                  <form action="#openModal-take-forever">
+                     <button class="btn btn-primary" type="submit">Забрать домой</button>
+                  </form>
+                  <form action="#openModal-take-temporally">
+                     <button class="btn btn-secondary" type="submit">Забрать на передержку</button>
+                  </form>
+               </div>
+            </li>
+            <li class="pet-item pet-item--show-all" tabindex="0">
+               <img class="pet-img" src="img/pets/pets-3.png" alt="Собака с разными глазами" title="Герда">
+               <h4 class="pet-title title--h4-medium">Герда</h4>
+               <p class="pet-subtitle text--sm-medium">Мальчик, 7 месяцев</p>
+               <p class="pet-info text--sm-medium">Веселый и очень игривый, ему так нужны ваша любовь и ласка.У него
+                  потрясающая густая шерсть в полосочку.</p>
+               <form action="#openModal-more-details">
+                  <button class="btn-text" type="submit">Подробнее</button>
+               </form>
+               <div class="pets__buttons">
+                  <form action="#openModal-take-forever">
+                     <button class="btn btn-primary" type="submit">Забрать домой</button>
+                  </form>
+                  <form action="#openModal-take-temporally">
+                     <button class="btn btn-secondary" type="submit">Забрать на передержку</button>
+                  </form>
+               </div>
+            </li>
+            <li class="pet-item pet-item--show-all" tabindex="0">
+               <img class="pet-img" src="img/pets/pets-4.png" alt="Упитанный кот" title="Саки">
+               <h4 class="pet-title title--h4-medium">Саки</h4>
+               <p class="pet-subtitle text--sm-medium">Мальчик, 7 месяцев</p>
+               <p class="pet-info text--sm-medium">Серьезный кот в серьезные руки. Будет преданным только одному
+                  хозяину.
+               </p>
+               <form action="#openModal-more-details">
+                  <button class="btn-text" type="submit">Подробнее</button>
+               </form>
+               <div class="pets__buttons">
+                  <form action="#openModal-take-forever">
+                     <button class="btn btn-primary" type="submit">Забрать домой</button>
+                  </form>
+                  <form action="#openModal-take-temporally">
+                     <button class="btn btn-secondary" type="submit">Забрать на передержку</button>
+                  </form>
+               </div>
+            </li>
+            <li class="pet-item pet-item--show-all" tabindex="0">
+               <img class="pet-img" src="img/pets/pets-5.png" alt="Рыжая собака" title="Моника">
+               <h4 class="pet-title title--h4-medium">Моника</h4>
+               <p class="pet-subtitle text--sm-medium">Девочка, 4 месяцев</p>
+               <p class="pet-info text--sm-medium">Жила в ужасных условиях, бывшая хозяйка могла исчезнуть на
+                  двое суток закрыв её одну в комнате без еды. Очень ласковая,
+                  забавная, в еде не привередлива.</p>
+               <form action="#openModal-more-details">
+                  <button class="btn-text" type="submit">Подробнее</button>
+               </form>
+               <div class="pets__buttons">
+                  <form action="#openModal-take-forever">
+                     <button class="btn btn-primary" type="submit">Забрать домой</button>
+                  </form>
+                  <form action="#openModal-take-temporally">
+                     <button class="btn btn-secondary" type="submit">Забрать на передержку</button>
+                  </form>
+               </div>
+            </li>
+            <li class="pet-item pet-item--show-all" tabindex="0">
+               <img class="pet-img" src="img/pets/pets-6.png" alt="Счастливая собака с языком на бороде"
+                  title="Андреантино">
+               <h4 class="pet-title title--h4-medium">Андреантино</h4>
+               <p class="pet-subtitle text--sm-medium">Мальчик, 7 месяцев</p>
+               <p class="pet-info text--sm-medium">Супер дружелюбный пес. Спешите, таких больше не найдете.</p>
+               <form action="#openModal-more-details">
+                  <button class="btn-text" type="submit">Подробнее</button>
+               </form>
+               <div class="pets__buttons">
+                  <form action="#openModal-take-forever">
+                     <button class="btn btn-primary" type="submit">Забрать домой</button>
+                  </form>
+                  <form action="#openModal-take-temporally">
+                     <button class="btn btn-secondary" type="submit">Забрать на передержку</button>
+                  </form>
+               </div>
+            </li>
+            <li class="pet-item pet-item--show-all" tabindex="0">
+               <img class="pet-img" src="img/pets/pets-7.png" alt="Чёрный щенок" title="Пупсик">
+               <h4 class="pet-title title--h4-medium">Пупсик</h4>
+               <p class="pet-subtitle text--sm-medium">Мальчик, 3 месяца</p>
+               <p class="pet-info text--sm-medium">Милый песик. Очень игривый. Черная шубка светится на солнце и
+                  переливается синим.</p>
+               <form action="#openModal-more-details">
+                  <button class="btn-text" type="submit">Подробнее</button>
+               </form>
+               <div class="pets__buttons">
+                  <form action="#openModal-take-forever">
+                     <button class="btn btn-primary" type="submit">Забрать домой</button>
+                  </form>
+                  <form action="#openModal-take-temporally">
+                     <button class="btn btn-secondary" type="submit">Забрать на передержку</button>
+                  </form>
+               </div>
+            </li>
+            <li class="pet-item pet-item--show-all" tabindex="0">
+               <img class="pet-img" src="img/pets/pets-8.png" alt="Красивый чёрный кот" title="Красавчик">
+               <h4 class="pet-title title--h4-medium">Красавчик</h4>
+               <p class="pet-subtitle text--sm-medium">Мальчик, 7 месяцев</p>
+               <p class="pet-info text--sm-medium">Мудрый кот. Аккуратный и нежный. Не царапает вещи и мебель. Кушает
+                  все!</p>
+               <form action="#openModal-more-details">
+                  <button class="btn-text" type="submit">Подробнее</button>
+               </form>
+               <div class="pets__buttons">
+                  <form action="#openModal-take-forever">
+                     <button class="btn btn-primary" type="submit">Забрать домой</button>
+                  </form>
+                  <form action="#openModal-take-temporally">
+                     <button class="btn btn-secondary" type="submit">Забрать на передержку</button>
+                  </form>
+               </div>
+            </li>
+            <li class="pet-item pet-item--show-all" tabindex="0">
+               <img class="pet-img" src="img/pets/pets-9.png" alt="Взрослая собака на цепи" title="Милаха">
+               <h4 class="pet-title title--h4-medium">Милаха</h4>
+               <p class="pet-subtitle text--sm-medium">Девочка, 2 года</p>
+               <p class="pet-info text--sm-medium">Девочка-красотка будет надежным защитником и другом хорошему
+                  человеку.</p>
+               <form action="#openModal-more-details">
+                  <button class="btn-text" type="submit">Подробнее</button>
+               </form>
+               <div class="pets__buttons">
+                  <form action="#openModal-take-forever">
+                     <button class="btn btn-primary" type="submit">Забрать домой</button>
+                  </form>
+                  <form action="#openModal-take-temporally">
+                     <button class="btn btn-secondary" type="submit">Забрать на передержку</button>
+                  </form>
+               </div>
+            </li>
+            <li class="pet-item pet-item--show-all" tabindex="0">
+               <img class="pet-img" src="img/pets/pets-10.png" alt="Чёрно-белая собака" title="Бобик">
+               <h4 class="pet-title title--h4-medium">Бобик</h4>
+               <p class="pet-subtitle text--sm-medium">Мальчик, 7 месяцев</p>
+               <p class="pet-info text--sm-medium">Мальчиш-крепыш. Здоров, привит и кастрирован.
+               </p>
+               <form action="#openModal-more-details">
+                  <button class="btn-text" type="submit">Подробнее</button>
+               </form>
+               <div class="pets__buttons">
+                  <form action="#openModal-take-forever">
+                     <button class="btn btn-primary" type="submit">Забрать домой</button>
+                  </form>
+                  <form action="#openModal-take-temporally">
+                     <button class="btn btn-secondary" type="submit">Забрать на передержку</button>
+                  </form>
+               </div>
+            </li>
+            <li class="pet-item pet-item--show-all" tabindex="0">
+               <img class="pet-img" src="img/pets/pets-11.png" alt="Лохматый чёрный пёс" title="Блэки">
+               <h4 class="pet-title title--h4-medium">Блэки</h4>
+               <p class="pet-subtitle text--sm-medium">Мальчик, 7 месяцев</p>
+               <p class="pet-info text--sm-medium">К поводку приучен. Не агрессивный. В еде не привередничает. С другими
+                  животными не конфликтует. Привит.</p>
+               <form action="#openModal-more-details">
+                  <button class="btn-text" type="submit">Подробнее</button>
+               </form>
+               <div class="pets__buttons">
+                  <form action="#openModal-take-forever">
+                     <button class="btn btn-primary" type="submit">Забрать домой</button>
+                  </form>
+                  <form action="#openModal-take-temporally">
+                     <button class="btn btn-secondary" type="submit">Забрать на передержку</button>
+                  </form>
+               </div>
+            </li>
+         </ul>
+      </div>
+   </main>
+
+   <footer>
+      <div class="footer__nav">
+         <ul>
+            <li><a href="#help1">Дом или передержка</a></li>
+            <li><a href="#help2">Финансовая поддержка</a></li>
+            <li><a href="#help3">Корма, лекарства и другие вещи</a></li>
+            <li><a href="#help4">Автопомощь</a></li>
+            <li><a href="#help5">Волонтерство</a></li>
+         </ul>
+         <ul>
+            <li><a href="#about_us">О нас</a></li>
+            <li><a href="#about_us">Контакты</a></li>
+         </ul>
+         <p class="footer__copyright">© 2020 БООЗЖ "СПАСИ ЖИЗНЬ"</p>
+      </div>
+   </footer>
+
+   <!-- ! Модальные окна -->
+   <div id="openModal-take-forever" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal__dialog" role="document">
+         <div class="modal__content">
+            <div class="modal__header">
+               <h3 class="modal__title">Забрать домой</h3>
+               <a class="close-modal" href="#close" role="button" aria-label="Закрыть" title="Закрыть">
+                  <img src="icon/close.svg" alt="Крестик">
+               </a>
+            </div>
+            <div class="modal__body">
+               <div class="modal__pet">
+                  <img class="modal__pet-image" src="img/pets/pets-1.png" alt="Рыжая собака">
+                  <div class="modal__pet-info">
+                     <h4 class="title--h4-medium">Моник</h4>
+                     <p class="text--sm-medium">Мальчик, 7 месяцев</p>
+                  </div>
+               </div>
+               <p class="modal__body-text">
+                  Оставьте информацию о себе. Мы позвоним вам и договоримся, когда вы сможете забрать себе питомца.
+               </p>
+               <form id="take-forever" class="modal__form" action="#" method="POST">
+                  <div class="modal__form-username">
+                     <input class="modal__form-input" type="text" id="username__take-forever" name="username"
+                        minlength="2" maxlength="56" pattern="[A-Za-zА-Яа-яЁё]{2,56}" placeholder="Фамилия и имя" />
+                     <label class="modal__form-label--psevdo-legend" for="username__take-forever">Фамилия и
+                        имя</label>
+                  </div>
+                  <div class="modal__form-phone">
+                     <input class="modal__form-input" type="tel" id="phone__take-forever" name="phone" maxlength="12"
+                        pattern="[0-9]{12}" required placeholder="Номер телефона" />
+                     <label class="modal__form-label--psevdo-legend" for="phone__take-forever">Номер телефона</label>
+                     <p class="text--sm-normal" id="required__take-forever">
+                        Обязательное поле для заполнения
+                     </p>
+                  </div>
+                  <div class="modal__form-notes">
+                     <textarea class="modal__form-textarea" id="notes__take-forever" name="notes" maxlength="500"
+                        placeholder="Замечания"></textarea>
+                     <label class="modal__form-label--psevdo-legend psevdo-legend--notes"
+                        for="notes__take-forever">Опишите,
+                        как вы сможете нам помочь и удобное время для вас</label>
+                  </div>
+                  <ul class="modal__contacts text--sm-normal">
+                     <li>
+                        Если у вас есть вопросы, можете позвонить нам:
+                     </li>
+                     <li>
+                        +375 (33) 6237879 Лена
+                     </li>
+                     <li>
+                        +375 (29) 7877791 Ольга
+                     </li>
+                     <li>
+                        +375 (29) 5837015 Рита
+                     </li>
+                  </ul>
+               </form>
+            </div>
+            <div class="modal__footer">
+               <button form="take-forever" class="btn btn-primary" type="submit">Отправить заявку</button>
+               <button form="take-forever" class="btn btn-secondary" type="reset">Отмена</button>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div id="openModal-take-temporally" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal__dialog" role="document">
+         <div class="modal__content">
+            <div class="modal__header">
+               <h3 class="modal__title">Забрать на передержку</h3>
+               <a class="close-modal" href="#close" role="button" aria-label="Закрыть" title="Закрыть">
+                  <img src="icon/close.svg" alt="Крестик">
+               </a>
+            </div>
+            <div class="modal__body">
+               <div class="modal__pet">
+                  <img class="modal__pet-image" src="img/pets/pets-1.png" alt="Рыжая собака">
+                  <div class="modal__pet-info">
+                     <h4 class="title--h4-medium">Моник</h4>
+                     <p class="text--sm-medium">Мальчик, 7 месяцев</p>
+                  </div>
+               </div>
+               <p class="modal__body-text">
+                  Оставьте информацию о себе. Мы позвоним вам и договоримся, когда вы сможете забрать себе питомца на
+                  передержку.
+               </p>
+               <form id="take-temporally" class="modal__form" action="#" method="POST">
+                  <div class="modal__form-username">
+                     <input class="modal__form-input" type="text" id="username__take-temporally" name="username"
+                        minlength="2" maxlength="56" pattern="[A-Za-zА-Яа-яЁё]{2,56}" placeholder="Фамилия и имя" />
+                     <label class="modal__form-label--psevdo-legend" for="username__take-temporally">Фамилия и
+                        имя</label>
+                  </div>
+                  <div class="modal__form-phone">
+                     <input class="modal__form-input" type="tel" id="phone__take-temporally" name="phone" maxlength="12"
+                        pattern="[0-9]{12}" required placeholder="Номер телефона" />
+                     <label class="modal__form-label--psevdo-legend" for="phone__take-temporally">Номер
+                        телефона</label>
+                     <p class="text--sm-normal" id="required__take-temporally">
+                        Обязательное поле для заполнения
+                     </p>
+                  </div>
+                  <div class="modal__form-notes">
+                     <textarea class="modal__form-textarea" id="notes__take-temporally" name="notes" maxlength="500"
+                        placeholder="Замечания"></textarea>
+                     <label class="modal__form-label--psevdo-legend psevdo-legend--notes"
+                        for="notes__take-temporally">Опишите,
+                        как вы сможете нам помочь и удобное время для вас</label>
+                  </div>
+                  <ul class="modal__contacts text--sm-normal">
+                     <li>
+                        Если у вас есть вопросы, можете позвонить нам:
+                     </li>
+                     <li>
+                        +375 (33) 6237879 Лена
+                     </li>
+                     <li>
+                        +375 (29) 7877791 Ольга
+                     </li>
+                     <li>
+                        +375 (29) 5837015 Рита
+                     </li>
+                  </ul>
+                  <p>
+                     Наши волонтеры будут активно искать будущий дом хвостику, пока вы помогаете нам с
+                     передержкой.<br />
+                     Спасибо за помощь!
+                  </p>
+               </form>
+            </div>
+            <div class="modal__footer">
+               <button form="take-temporally" class="btn btn-primary" type="submit">Отправить заявку</button>
+               <button form="take-temporally" class="btn btn-secondary" type="reset">Отмена</button>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div id="openModal-more-details" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal__dialog" role="document">
+         <div class="modal__content">
+            <div class="modal__header">
+               <h3 class="modal__title">Альф</h3>
+               <a class="close-modal" href="#close" role="button" aria-label="Закрыть" title="Закрыть">
+                  <img src="icon/close.svg" alt="Крестик">
+               </a>
+            </div>
+            <div class="modal__body">
+               <div class="modal__pet">
+                  <div class="text--sm-medium">
+                     <p>Мальчик, 7 месяцев</p>
+                     <p>Создавая Альфа, Природа долго думала, что же нужно сделать для того, чтобы получился абсолютно
+                        простой кот с необыкновенной изюминкой!</p>
+                     <p>И она прекрасно реализовала свой план! Ведь Альф - это истинный баланс
+                        классических цветов - белого и черного, с большими и запоминающимися лимонными глазами!</p>
+                     <p>Он веселый и игривый котик, с повадками настоящего охотника! Очень умный и деликатный, чуточку
+                        боязлив, никогда не будет навязывать свое общество, но всегда с благодарностью примет вашу
+                        любовь и внимание. Отлично уживается на одной территории с другими представителями кошачьих.</p>
+                     <p>Звоните, приезжайте на смотрины. Альф – станет вашим солнечным лучиком!</p>
+                     <p>Альф находится в Пункте содержания безнадзорных животных г.Гродно. Актуальна ПЕРЕДЕРЖКА! Не
+                        ждите, спасайте!</p>
+                     <p>+375 29 7877791 Ольга</p>
+                  </div>
+               </div>
+               <div class="modal__pet-photos">
+                  <img class="modal__pet-photos--pet-photo" src="img/pets/pets-12.png" alt="Чёрно-белый кот">
+                  <img class="modal__pet-photos--pet-photo" src="img/pets/pets-12-1.png" alt="Чёрно-белый кот">
+                  <img class="modal__pet-photos--pet-photo" src="img/pets/pets-12-2.png" alt="Чёрно-белый кот">
+                  <img class="modal__pet-photos--pet-photo" src="img/pets/pets-12.png" alt="Чёрно-белый кот">
+                  <img class="modal__pet-photos--pet-photo" src="img/pets/pets-12-1.png" alt="Чёрно-белый кот">
+               </div>
+            </div>
+            <div class="modal__footer">
+               <form action="#openModal-take-forever">
+                  <button class="btn btn-primary" type="submit">Забрать домой</button>
+               </form>
+               <form action="#openModal-take-temporally">
+                  <button class="btn btn-secondary" type="submit">Забрать на передержку</button>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <script>
+      /* УБИРАЕТ СКАЧЕК ПРИ ЗАКРЫТИИ МОДАЛЬНОГО ОКНА */
+      document.addEventListener("DOMContentLoaded", function () {
+         let scrollbar = document.body.clientWidth - window.innerWidth + 'px';
+
+         console.log(scrollbar);
+         document.querySelector(
+               '#help3, #openModal-car-assistance, #openModal-volunteering, #openModal-take-forever, #openModal-take-temporally, #openModal-map'
+            )
+            .addEventListener('click', function () {
+               document.body.style.overflow = 'hidden';
+               document.querySelector(
+                     '#help3, #openModal-car-assistance, #openModal-volunteering, #openModal-take-forever, #openModal-take-temporally, #openModal-map'
+                  )
+                  .style.marginLeft = scrollbar;
+            });
+         document.querySelector('[href="#close"]').addEventListener('click', function () {
+            document.body.style.overflow = 'visible';
+            document.querySelector(
+                  '#help3, #openModal-car-assistance, #openModal-volunteering, #openModal-take-forever, #openModal-take-temporally, #openModal-map'
+               )
+               .style.marginLeft = '0px';
+         });
+      });
+   </script>
+</body>
+
+</html>

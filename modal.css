@@ -1,0 +1,688 @@
+    /* Изначально модально окно не видно и не доступно для действий мыши */
+    .modal {
+       position: fixed;
+       top: 0;
+       right: 0;
+       width: 100%;
+       height: 100%;
+       background: rgba(0, 0, 0, 0.4);
+       z-index: 1000;
+       opacity: 0;
+       transition: opacity 400ms ease-in;
+       overflow: auto;
+       pointer-events: none;
+    }
+
+    /* При отображении модального окно */
+    .modal:target {
+       opacity: 1;
+       pointer-events: auto;
+    }
+
+    /* Ширина модального окна и его отступы от экрана */
+    .modal__dialog {
+       position: relative;
+       max-height: 100%;
+       width: 525px;
+       left: 50%;
+       top: 50%;
+       transform: translate(-50%, -50%);
+    }
+
+    #openModal-volunteering .modal__dialog {
+       width: 582px;
+    }
+
+    #openModal-more-details .modal__dialog {
+       width: 850px;
+    }
+
+    /* Свойства для блока, содержащего контент модального окна */
+    .modal__content {
+       position: relative;
+       padding: 30px 40px 30px;
+       background-color: #ffffff;
+       background-clip: padding-box;
+       border-radius: 5px;
+       box-shadow: 0px 0px 22px rgba(161, 161, 161, 0.25);
+    }
+
+    .modal__content,
+    .modal__body,
+    .modal__pet-subtitle,
+    .modal__pet,
+    .modal__pet-info,
+    .modal__form,
+    .modal__form-lable,
+    .modal__footer {
+       display: flex;
+    }
+
+    .modal__content,
+    .modal__body,
+    .modal__pet-subtitle,
+    .modal__pet-info,
+    .modal__form {
+       flex-direction: column;
+    }
+
+    .modal__pet-subtitle,
+    .modal__pet-info {
+       justify-content: center;
+    }
+
+    /* Свойства для заголовка модального окна */
+    .modal__header {
+       position: relative;
+       padding: 0 0 8px;
+       border-bottom: 1px solid #EEBF3A;
+    }
+
+    #openModal-more-details .modal__header {
+       border-bottom: 1px solid #D6D6D6;
+    }
+
+    .modal__title {
+       margin-left: auto;
+       margin-right: auto;
+       height: 36px;
+       width: 445px;
+       font-weight: 600;
+       font-size: 28px;
+       line-height: 24px;
+       color: #B3B3B3;
+    }
+
+    #openModal-more-details .modal__title {
+       text-align: center;
+       color: #242424;
+    }
+
+    /* Свойства для кнопки "Закрыть" */
+    .close-modal {
+       position: absolute;
+       top: 0;
+       right: 0;
+       height: 16px;
+       width: 16px;
+       cursor: pointer;
+       outline: none;
+       opacity: .75;
+    }
+
+    .close-modal:hover {
+       opacity: 1;
+    }
+
+    .close-modal:focus-visible {
+       opacity: 1;
+       outline: 2px solid #6B6B6B;
+    }
+
+    .close-modal:active {
+       transform: translateY(1px);
+    }
+
+    /* Свойства для блока, содержащего основное содержимое окна */
+    .modal__body {
+       margin-left: auto;
+       margin-right: auto;
+       padding: 16px 2px;
+       width: 445px;
+       overflow: hidden;
+       font-size: 16px;
+       color: #6B6B6B;
+    }
+
+    #openModal-help3 .modal__body {
+       color: #242424;
+    }
+
+    #openModal-more-details .modal__body {
+       width: 770px;
+       color: #242424;
+    }
+
+    .modal__body-text {
+       margin: 4px 0 16px;
+       width: 100%;
+    }
+
+    #openModal-car-assistance .modal__body-text,
+    #openModal-take-forever .modal__body-text {
+       width: 90.34%;
+       min-width: 300px;
+    }
+
+    #openModal-take-temporally .modal__body-text {
+       width: 82.70%;
+       min-width: 300px;
+    }
+
+    #openModal-take-temporally p:last-of-type {
+       margin: 16px auto 0;
+       color: #B3B3B3;
+    }
+
+    #openModal-car-assistance ul li:first-of-type {
+       margin: 0 auto 16px;
+       color: #242424;
+    }
+
+    .modal__pet {
+       margin: 18px 0 23px;
+       min-height: 91px;
+    }
+
+    #openModal-more-details .modal__pet {
+       margin: 0 auto 24px;
+       width: 494px;
+       color: #6B6B6B;
+    }
+
+    #openModal-more-details .modal__pet p:nth-child(1n+2) {
+       margin: 8px auto 16px;
+       color: #424242;
+    }
+
+    .modal__subtitle {
+       height: 32px;
+       font-weight: 500;
+       font-size: 22px;
+       line-height: 32px;
+       color: #242424;
+    }
+
+    .modal__pet-image {
+       height: 91px;
+       width: 91px;
+       border-radius: 50%;
+       object-fit: cover;
+    }
+
+    .modal__pet-info {
+       padding-left: 13px;
+       color: #242424;
+    }
+
+    .modal__pet-info p {
+       margin-top: 8px;
+       color: #6B6B6B;
+    }
+
+    .modal__pet-photos {
+       display: grid;
+       grid-template-columns: 1fr 1fr 1fr;
+       grid-row-gap: 31px;
+       justify-content: space-between;
+       justify-items: center;
+    }
+
+    .modal__pet-photos--pet-photo {
+       height: 262px;
+       width: 236px;
+       object-fit: cover;
+    }
+
+    .modal__form,
+    .modal__form-username,
+    .modal__form-phone,
+    .modal__form-response,
+    .modal__form-notes {
+       position: relative;
+    }
+
+    .modal__form-phone p {
+       color: #B3B3B3;
+    }
+
+    .modal__form-response {
+       margin-top: 44px;
+       margin-bottom: 0;
+       padding: 0;
+    }
+
+    .modal__contacts {
+       margin-top: 24px;
+       margin-bottom: 0;
+       padding: 0;
+    }
+
+    #openModal-help3 .modal__contacts {
+       margin-top: 16px;
+       height: 97px;
+       display: flex;
+       flex-direction: column;
+       justify-content: space-between;
+    }
+
+    #openModal-take-forever .modal__contacts,
+    #openModal-take-temporally .modal__contacts {
+       color: #474747;
+    }
+
+    .modal__form-notes {
+       margin-top: 20px;
+    }
+
+    #openModal-take-forever .modal__form-notes,
+    #openModal-take-temporally .modal__form-notes {
+       margin-top: 44px;
+    }
+
+    #required__car-assistance,
+    #required__volunteering,
+    #required__take-forever,
+    #required__take-temporally {
+       position: absolute;
+       margin: 0;
+       bottom: -22px;
+       left: 16px;
+    }
+
+    .modal__form-lable {
+       align-items: center;
+    }
+
+    .modal__form-lable {
+       position: relative;
+       margin-bottom: 12px;
+       padding-left: 33px;
+       cursor: pointer;
+    }
+
+    .modal__form-lable--radio {
+       width: 380px;
+    }
+
+    /* Скрываем дефолтный checkbox */
+    .modal__form-lable--checkbox input[type=checkbox],
+    .modal__form-lable--radio input[type=radio] {
+       position: absolute;
+       opacity: 0;
+       width: 0;
+       height: 0;
+    }
+
+    /* Создаём настраиваемый checkbox */
+    .modal__form-lable--checkbox span {
+       position: absolute;
+       box-sizing: border-box;
+       left: 5px;
+       top: 2px;
+       width: 16px;
+       height: 16px;
+       background: #FFFFFF;
+       border: 1px solid #F9B800;
+       border-radius: 2px;
+       filter: drop-shadow(3px 3px 4px rgba(113, 113, 113, 0.05));
+       box-shadow: inset 3px 3px 2px rgba(189, 188, 188, 0.24);
+    }
+
+    /* Создаём настраиваемый radio */
+    .modal__form-lable--radio span {
+       position: absolute;
+       box-sizing: border-box;
+       left: 5px;
+       top: 1px;
+       width: 18px;
+       height: 18px;
+       background: #FFFFFF;
+       border: 1px solid #F9B800;
+       border-radius: 50%;
+       filter: drop-shadow(3px 3px 4px rgba(113, 113, 113, 0.05));
+       box-shadow: inset 3px 3px 2px rgba(189, 188, 188, 0.24);
+    }
+
+    /* Выбор ещё не сделан! */
+    .modal__form-lable--checkbox span:after {
+       content: "";
+       position: absolute;
+       display: none;
+       /* check icon */
+       left: 3px;
+       top: 4px;
+       width: 10px;
+       height: 7.5px;
+       background-image: url(icon/check.svg);
+    }
+
+    .modal__form-lable--radio span:after {
+       content: "";
+       position: absolute;
+       display: none;
+       /* check icon */
+       top: 4px;
+       left: 4px;
+       width: 8px;
+       height: 8px;
+       border-radius: 50%;
+       background-color: #ffffff;
+    }
+
+    /* При наведении и выборе */
+    .modal__form-lable--checkbox:hover span {
+       border: 1px solid #6B6B6B;
+    }
+
+    .modal__form-lable--checkbox input:checked~span {
+       border: none;
+       background: linear-gradient(168.69deg, #FFD96F -1.56%, #FFC82B 52.74%, #F4B500 93.23%);
+       box-shadow: 2px 2px 4px rgba(206, 206, 206, 0.25);
+    }
+
+    .modal__form-lable--radio:hover span {
+       border: 1px solid #6B6B6B;
+    }
+
+    .modal__form-lable--radio input:checked~span {
+       background: linear-gradient(149.04deg, #F9B800 22.92%, #FFD45B 81.94%);
+       box-shadow: 2px 2px 4px rgba(201, 201, 201, 0.25), inset 3px 3px 4px #ECAF01;
+    }
+
+    .modal__form-lable--radio:hover input:checked~span {
+       border: 1px solid #F9B800;
+    }
+
+    .modal__form-lable--checkbox input:checked~span:after,
+    .modal__form-lable--radio input:checked~span:after {
+       display: block;
+    }
+
+    .modal__form-response label:focus {
+       outline: none;
+    }
+
+    .modal__form-response label:focus-visible {
+       outline: 2px solid #6B6B6B;
+    }
+
+    /* INPUT */
+    .modal__form-input,
+    .modal__form-textarea {
+       display: block;
+       margin: 0 auto 0;
+       padding: 10px 16px;
+       width: 100%;
+       background: #FFFFFF;
+       border: 1px solid #D6D6D6;
+       box-sizing: border-box;
+       border-radius: 2px;
+       font-weight: 500;
+       font-size: 14px;
+       line-height: 120%;
+    }
+
+    .modal__form-input {
+       margin-top: 16px;
+       height: 40px;
+    }
+
+    .modal__form-textarea {
+       min-height: 76px;
+       resize: none;
+       overflow: hidden;
+    }
+
+    .modal__form-input:hover,
+    .modal__form-textarea:hover {
+       border: 1px solid #FFC41E;
+    }
+
+    .modal__form-input:focus,
+    .modal__form-textarea:focus {
+       outline: none;
+    }
+
+    .modal__form-input:focus-visible,
+    .modal__form-textarea:focus-visible {
+       border: 1px solid #FFC41E;
+       box-shadow: 0px 0px 0px 2px rgba(255, 196, 30, 0.25);
+    }
+
+    .modal__form-input::placeholder,
+    .modal__form-textarea::placeholder {
+       color: rgba(107, 107, 107, .7);
+    }
+
+    .modal__form-input:hover::placeholder,
+    .modal__form-textarea:hover::placeholder {
+       color: rgba(107, 107, 107, 1);
+    }
+
+    .modal__form-label--psevdo-legend {
+       position: absolute;
+       display: none;
+       background: #FFFFFF;
+       font-family: 'Roboto', sans-serif;
+       font-style: normal;
+       font-weight: normal;
+       font-size: 12px;
+       line-height: 24px;
+       height: 24px;
+       left: 11px;
+       bottom: 28px;
+       padding: 0px 4px;
+    }
+
+    .psevdo-legend--notes {
+       top: -12px;
+    }
+
+    .modal__form-input:not(:placeholder-shown),
+    .modal__form-textarea:not(:placeholder-shown),
+    .modal__form-input:hover:not(:placeholder-shown),
+    .modal__form-textarea:hover:not(:placeholder-shown) {
+       color: #242424;
+    }
+
+    .modal__form-input:focus:not(:placeholder-shown),
+    .modal__form-textarea:focus:not(:placeholder-shown) {
+       color: #000000;
+    }
+
+    .modal__form-input:focus+.modal__form-label--psevdo-legend,
+    .modal__form-textarea:focus+.modal__form-label--psevdo-legend,
+    .modal__form-input:focus:not(:placeholder-shown)+.modal__form-label--psevdo-legend,
+    .modal__form-textarea:focus:not(:placeholder-shown)+.modal__form-label--psevdo-legend {
+       display: block;
+       color: #E5A900;
+    }
+
+    .modal__form-input:not(:placeholder-shown)+.modal__form-label--psevdo-legend,
+    .modal__form-textarea:not(:placeholder-shown)+.modal__form-label--psevdo-legend {
+       display: block;
+       color: #6B6B6B;
+    }
+
+    /* INPUT DISABLED */
+    .modal__form-input:disabled,
+    .modal__form-textarea:disabled {
+       pointer-events: none;
+       border: none;
+       background: #F2F2F2;
+       color: #B3B3B3;
+    }
+
+    /* Свойства для подвала модального окна */
+    .modal__footer {
+       position: relative;
+       margin-top: 16px;
+       margin-left: auto;
+       margin-right: auto;
+       width: 445px;
+       justify-content: space-between;
+       z-index: 0;
+    }
+
+    #openModal-more-details .modal__footer {
+       margin-top: 8px;
+       width: 527px;
+    }
+
+    /* Модальное окно: "Посмотреть на карте" */
+    .modal__dialog-map {
+       position: relative;
+       max-height: 100%;
+       max-width: 1143px;
+       width: 100%;
+       left: 50%;
+       top: 50%;
+       transform: translate(-50%, -50%);
+    }
+
+    .modal__content-map {
+       position: relative;
+       padding: 12px 12px 11px;
+       background-color: #FFFFFF;
+       background-clip: padding-box;
+       border-radius: 5px;
+       box-shadow: 0px 0px 22px rgba(161, 161, 161, 0.25);
+    }
+
+    .modal__header-map {
+       position: absolute;
+       top: 0;
+       left: 0;
+       height: 38px;
+       width: 100%;
+       background-color: #FFFFFF;
+       border-radius: 5px 5px 0px 0px;
+       opacity: 0.8;
+       z-index: 1001;
+    }
+
+    .modal__header-map .close-modal {
+       top: 10px;
+       right: 10px;
+    }
+
+    .modal__map,
+    .modal__map iframe {
+       position: relative;
+       width: 100%;
+       height: 90vh;
+       border: none;
+       overflow: hidden;
+    }
+
+    @media screen and (max-width: 640px) and (orientation: landscape),
+    screen and (max-width: 640px) and (orientation: portrait) {
+       #openModal-help3 .modal__dialog {
+          width: 360px;
+       }
+
+       #openModal-volunteering .modal__dialog,
+       #openModal-more-details .modal__dialog,
+       .modal__dialog {
+          width: 100%;
+       }
+
+       .modal__content {
+          padding: 30px;
+       }
+
+       .modal__title {
+          width: 300px;
+          font-size: 22px;
+       }
+
+       .modal__body {
+          width: 300px;
+       }
+
+       .modal__form-lable--radio {
+          width: 271px;
+       }
+
+       .modal__footer {
+          height: 80px;
+          width: 300px;
+          flex-direction: column;
+          align-items: center;
+       }
+    }
+
+    @media screen and (max-width: 639px) and (orientation: landscape),
+    screen and (max-width: 639px) and (orientation: portrait) {
+       #openModal-more-details .modal__dialog {
+          width: 100%;
+       }
+
+       #openModal-more-details .modal__body {
+          width: 300px;
+       }
+
+       .modal__pet-photos {
+          grid-template-columns: 1fr;
+          grid-row-gap: 16px;
+       }
+
+       .modal__pet-photos--pet-photo {
+          height: 333px;
+          width: 300px;
+       }
+
+       #openModal-more-details .modal__footer {
+          margin-top: 8px;
+          height: 80px;
+          width: 300px;
+          flex-direction: column;
+          align-items: center;
+       }
+    }
+
+    @media screen and (min-width: 640px) and (max-width: 767px) and (orientation: landscape),
+    screen and (min-width: 640px) and (max-width: 767px) and (orientation: portrait) {
+       #openModal-more-details .modal__dialog {
+          width: 100%;
+       }
+
+       #openModal-more-details .modal__body {
+          width: 368px;
+       }
+
+       .modal__pet-photos {
+          grid-template-columns: 1fr 1fr;
+          grid-row-gap: 23px;
+       }
+
+       .modal__pet-photos--pet-photo {
+          height: 217px;
+          width: 172px;
+       }
+
+       #openModal-more-details .modal__footer {
+          margin-top: 8px;
+          height: 80px;
+          width: 300px;
+          flex-direction: column;
+          align-items: center;
+       }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+       #openModal-more-details .modal__dialog {
+          width: 768px;
+       }
+
+       #openModal-more-details .modal__body {
+          width: 444px;
+       }
+
+       .modal__pet-photos {
+          grid-template-columns: 1fr 1fr;
+       }
+
+       .modal__pet-photos--pet-photo {
+          width: 207px;
+       }
+
+       #openModal-more-details .modal__footer {
+          margin-top: 8px;
+          height: 100px;
+          width: 300px;
+          flex-direction: column;
+          align-items: center;
+       }
+    }
