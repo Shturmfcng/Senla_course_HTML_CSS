@@ -1,0 +1,19 @@
+{
+  "name": "senla_react_course",
+  "version": "1.0.0",
+  "description": "Сайт для благотворительного общественного объединения защиты животных \"СПАСИ ЖИЗНЬ\"\r  [Та-дам!](https://shturmfcng-save-life.netlify.app/) (разместил на **netlify**)",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shturmfcng/Senla_react_course.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shturmfcng/Senla_react_course/issues"
+  },
+  "homepage": "https://github.com/Shturmfcng/Senla_react_course#readme"
+}
