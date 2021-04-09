@@ -11,7 +11,7 @@ const surname;
 let age;
 
 // информация о пользователе (может изменяться)
-let UserInformation;
+let userInformation;
 
 //! 2. Что будет в консоли и почему:
 // 1.

@@ -3,16 +3,14 @@
 let string = 'string test example';
 
 //! 1. Получить первую и последнюю букву строки:
-let firstLetter = string.slice(0, 1);
+let firstLetter = string.charAt(0);
 console.log('1.1 Первая буква строки: ' + firstLetter);
-let lastLetter = string.slice(-1);
+let lastLetter = string.charAt(string.length - 1);
 console.log('1.2 Последняя буква строки: ' + lastLetter);
 
 //! 2. Сделать первую и последнюю буквы строки в верхнем регистре:
-firstLetter = firstLetter.toUpperCase();
-console.log('2.1 Первая буква строки в верхнем регистре: ' + firstLetter);
-lastLetter = lastLetter.toUpperCase();
-console.log('2.2 Последняя буква строки в верхнем регистре: ' + lastLetter);
+console.log('2.1 Первая буква строки в верхнем регистре: ' + firstLetter.toUpperCase());
+console.log('2.2 Последняя буква строки в верхнем регистре: ' + lastLetter.toUpperCase());
 
 //! 3. Найти положение слова string в строке:
 let searchWord = string.indexOf('string');
@@ -32,5 +30,5 @@ console.log('6. Строка с 1 по 7 символ (не включая 7-о�
 
 //! 7. Из 2-ух переменных типа number x = 20, y = 21 получить строку "2021":
 let x = 20, y = 21;
-let newString3 = '' + x + y;
+let newString3 = String(x) + y;
 console.log('7. Строка "2021" из 2-ух переменных: ' + newString3);
